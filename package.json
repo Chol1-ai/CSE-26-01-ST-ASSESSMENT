@@ -1,0 +1,24 @@
+{
+  "name": "cse-26-01-st-assessment",
+  "version": "1.0.0",
+  "description": "CSE-26-01-ST-ASSESSMENT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iabdulahdi-bit/CSE-26-01-ST-ASSESSMENT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iabdulahdi-bit/CSE-26-01-ST-ASSESSMENT/issues"
+  },
+  "homepage": "https://github.com/iabdulahdi-bit/CSE-26-01-ST-ASSESSMENT#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.3.0"
+  }
+}

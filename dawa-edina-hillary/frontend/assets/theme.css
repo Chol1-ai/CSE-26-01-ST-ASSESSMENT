@@ -1,0 +1,28 @@
+:root{
+    /* Colors */
+    --deep-green: #385723;
+    --pale-green: #99CC32;
+    --white: #ffffff;
+    --ink: #111111;
+
+    /* Typography */
+    --font-family-primary: "Agency FB", "Arial Narrow";
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-md);
+    color: var(--ink);
+}

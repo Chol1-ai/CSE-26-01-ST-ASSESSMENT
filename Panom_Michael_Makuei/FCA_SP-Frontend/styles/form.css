@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Agency FB, Arial Narrow;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  /* padding: 24px; */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* logo side */
+.left {
+  width: 40%;
+  background: #94c11f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.logo-circle {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-text {
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* form side */
+.right {
+  width: 60%;
+  background: #f9f9f9;
+  padding: 48px 48px 56px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+  color: #385723;
+  font-size: 26px;
+}
+
+/* making it grid*/
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #385723;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 2px solid #99CC32;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+}
+input.input-error,
+select.input-error {
+  border-color: red;
+  box-shadow: 0 0 6px red;
+}
+.gender {
+  grid-column: span 2;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #99CC32;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.gender label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.gender input {
+  margin-right: 6px;
+  accent-color: #99CC32;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  text-align: left;
+}
+
+.alertBox {
+  background: #ffdddd;
+  color: #698707;
+  border: 1px solid #a94442;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: none; /* Hidden by default */
+}
+/* BUTTON */
+.button-container {
+  grid-column: span 2;
+  margin-top: 10px;
+  text-align: right;
+}
+
+button {
+  background: #99CC32;
+  border: none;
+  padding: 14px 48px;
+  font-size: 16px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #99CC32;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+

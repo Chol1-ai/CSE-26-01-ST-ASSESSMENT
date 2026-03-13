@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beneficiary Registration</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Arial Narrow";
+}
+
+body{
+background:#f3f4f6;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.container{
+display:flex;
+width:1000px;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* LEFT SIDE */
+
+.left{
+width:40%;
+background:#99CC32;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+.logo{
+width:160px;
+height:160px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:20px;
+overflow:hidden;
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+}
+
+.left h2{
+font-family:"Agency FB";
+font-weight:400;
+letter-spacing:1px;
+color:white;
+}
+
+/* RIGHT SIDE */
+
+.right{
+width:60%;
+padding:40px;
+}
+
+.right h1{
+font-family:"Agency FB";
+font-size:22px;
+margin-bottom:25px;
+color:#385723;
+letter-spacing:1px;
+}
+
+.form-row{
+display:flex;
+gap:15px;
+margin-bottom:15px;
+}
+
+.input-group{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+label{
+font-size:13px;
+margin-bottom:5px;
+color:#555;
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:0.5px;
+}
+
+input, select{
+padding:10px;
+border:2px solid #99CC32;
+border-radius:0px;
+font-size:14px;
+transition: border-color 0.3s;
+background-color:#fff;
+}
+
+input:focus, select:focus{
+outline:none;
+border-color:#385723;
+}
+
+.input-group.error input,
+.input-group.error select {
+border-color: #ff4444;
+background-color: #fff8f8;
+}
+
+.error-message {
+color: #ff4444;
+font-size: 12px;
+margin-top: 5px;
+min-height: 18px;
+}
+
+
+.invalid-field {
+border-color: #ff4444 !important;
+background-color: #fff8f8;
+}
+
+
+.gender{
+display:flex;
+gap:20px;
+align-items:center;
+margin-top:8px;
+padding:8px 12px;
+border:2px solid #99CC32;
+border-radius:0px;
+background-color:#fff;
+}
+
+.gender label {
+font-weight: normal;
+display: flex;
+align-items: center;
+gap: 5px;
+text-transform:none;
+font-size:14px;
+margin-bottom:0;
+color:#333;
+}
+
+.gender input[type="radio"] {
+width: auto;
+margin-right: 5px;
+}
+
+button{
+margin-top:20px;
+background:#99CC32;
+color:white;
+border:none;
+padding:12px;
+width:200px;
+border-radius:5px;
+font-size:15px;
+cursor:pointer;
+transition: background 0.3s;
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+button:hover{
+background:#385723;
+}
+
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+/* Success message */
+.success-message{
+background:#99CC32;
+color:white;
+padding:15px;
+margin-bottom:20px;
+border-radius:5px;
+text-align:center;
+font-weight:bold;
+animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Required field indicator */
+.required::after {
+content: " *";
+color: #ff4444;
+font-weight:bold;
+}
+
+/* Form reset after success */
+.form-reset .input-group input,
+.form-reset .input-group select {
+border-color: #99CC32;
+background-color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<div class="logo">
+<img src="../../assessment/logo & colors/fca-logo.jpg" alt="FCA Logo">
+</div>
+
+<h2>Refugee Support Program</h2>
+
+</div>
+
+<div class="right">
+
+<div id="messageContainer"></div>
+
+<h1>BENEFICIARY REGISTRATION FORM</h1>
+
+<form id="beneficiaryForm" novalidate>
+
+<div class="form-row">
+
+<div class="input-group" id="group-firstName">
+<label class="required">First Name</label>
+<input type="text" id="firstName" placeholder="Enter your First name">
+<div class="error-message" id="error-firstName"></div>
+</div>
+
+<div class="input-group" id="group-lastName">
+<label class="required">Last Name</label>
+<input type="text" id="lastName" placeholder="Enter your Last name">
+<div class="error-message" id="error-lastName"></div>
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group" id="group-dob">
+<label class="required">Date of Birth</label>
+<input type="date" id="dob">
+<div class="error-message" id="error-dob"></div>
+</div>
+
+<div class="input-group" id="group-place">
+<label class="required">Place of Birth</label>
+<input type="text" id="place" placeholder="Enter your place of residence">
+<div class="error-message" id="error-place"></div>
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group" id="group-gender">
+<label class="required">Gender</label>
+<div class="gender">
+<label><input type="radio" name="gender" value="Male"> Male</label>
+<label><input type="radio" name="gender" value="Female"> Female</label>
+</div>
+<div class="error-message" id="error-gender"></div>
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group" id="group-nationality">
+<label class="required">Nationality</label>
+<select id="nationality">
+<option value="">-- Select Nationality --</option>
+<option>Ugandan</option>
+<option>Kenyan</option>
+<option>Tanzanian</option>
+<option>Burundian</option>
+<option>Rwandese</option>
+<option>Somali</option>
+<option>South Sudanese</option>
+</select>
+<div class="error-message" id="error-nationality"></div>
+</div>
+
+<div class="input-group" id="group-marital">
+<label class="required">Marital Status</label>
+<select id="marital">
+<option value="">-- Select Marital status --</option>
+<option>Single</option>
+<option>Married</option>
+<option>Divorced</option>
+<option>Widowed</option>
+<option>Separated</option>
+</select>
+<div class="error-message" id="error-marital"></div>
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group" id="group-camp">
+<label class="required">Settlement Camp</label>
+<select id="camp">
+<option value="">-- Select settlement camp --</option>
+<option>Gulu settlement camp</option>
+<option>Arua settlement camp</option>
+<option>Mbarara settlement camp</option>
+<option>Kasese settlement camp</option>
+<option>Busia settlement camp</option>
+<option>Mbale settlement camp</option>
+<option>Kigezi settlement camp</option>
+</select>
+<div class="error-message" id="error-camp"></div>
+</div>
+
+<div class="input-group" id="group-joinDate">
+<label class="required">Date of joining Settlement camp</label>
+<input type="date" id="joinDate">
+<div class="error-message" id="error-joinDate"></div>
+</div>
+
+</div>
+
+<button type="submit" id="submitBtn">Register</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+const form = document.getElementById("beneficiaryForm");
+const messageContainer = document.getElementById("messageContainer");
+const API_URL = 'http://localhost:5000/api/beneficiaries';
+
+// Clear all error states
+function clearErrors() {
+document.querySelectorAll('.input-group').forEach(group => {
+group.classList.remove('error');
+});
+document.querySelectorAll('.error-message').forEach(msg => {
+msg.textContent = '';
+});
+}
+
+// Show error for a specific field
+function showError(fieldId, message) {
+const group = document.getElementById(`group-${fieldId}`);
+const errorEl = document.getElementById(`error-${fieldId}`);
+if (group && errorEl) {
+group.classList.add('error');
+errorEl.textContent = message;
+}
+}
+
+// Validate form
+function validateForm() {
+let isValid = true;
+clearErrors();
+
+// Get values
+const firstName = document.getElementById("firstName").value.trim();
+const lastName = document.getElementById("lastName").value.trim();
+const place = document.getElementById("place").value.trim();
+const dob = document.getElementById("dob").value;
+const joinDate = document.getElementById("joinDate").value;
+const nationality = document.getElementById("nationality").value;
+const marital = document.getElementById("marital").value;
+const camp = document.getElementById("camp").value;
+const gender = document.querySelector('input[name="gender"]:checked');
+
+// Validation rules
+if (firstName.length < 2) {
+showError('firstName', 'First name must be at least 2 characters');
+isValid = false;
+}
+
+if (lastName.length < 2) {
+showError('lastName', 'Last name must be at least 2 characters');
+isValid = false;
+}
+
+if (place.length < 2) {
+showError('place', 'Place of birth must be at least 2 characters');
+isValid = false;
+}
+
+if (!dob) {
+showError('dob', 'Date of birth is required');
+isValid = false;
+} else {
+const dobDate = new Date(dob);
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+if (dobDate >= today) {
+showError('dob', 'Date of birth must be before today');
+isValid = false;
+}
+}
+
+if (!joinDate) {
+showError('joinDate', 'Date of joining is required');
+isValid = false;
+} else {
+const joinDateObj = new Date(joinDate);
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+if (joinDateObj <= today) {
+showError('joinDate', 'Joining date must be after today');
+isValid = false;
+}
+}
+
+if (!nationality) {
+showError('nationality', 'Please select nationality');
+isValid = false;
+}
+
+if (!marital) {
+showError('marital', 'Please select marital status');
+isValid = false;
+}
+
+if (!camp) {
+showError('camp', 'Please select settlement camp');
+isValid = false;
+}
+
+if (!gender) {
+showError('gender', 'Please select gender');
+isValid = false;
+}
+
+return isValid;
+}
+
+// Show success message
+function showSuccess(message) {
+messageContainer.innerHTML = `<div class="success-message">${message}</div>`;
+setTimeout(() => {
+messageContainer.innerHTML = '';
+}, 5000);
+}
+
+// Reset form to empty state
+function resetForm() {
+form.reset();
+clearErrors();
+document.querySelectorAll('.input-group').forEach(group => {
+group.classList.remove('error');
+});
+}
+
+// Handle form submission
+form.addEventListener("submit", async function(e) {
+e.preventDefault();
+
+if (!validateForm()) {
+// Scroll to first error
+const firstError = document.querySelector('.input-group.error');
+if (firstError) {
+firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+return;
+}
+
+// Prepare data
+const formData = {
+firstName: document.getElementById("firstName").value.trim(),
+lastName: document.getElementById("lastName").value.trim(),
+dateOfBirth: document.getElementById("dob").value,
+placeOfBirth: document.getElementById("place").value.trim(),
+gender: document.querySelector('input[name="gender"]:checked').value,
+nationality: document.getElementById("nationality").value,
+maritalStatus: document.getElementById("marital").value,
+settlementCamp: document.getElementById("camp").value,
+dateJoinedCamp: document.getElementById("joinDate").value
+};
+
+try {
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.disabled = true;
+submitBtn.textContent = 'Registering...';
+
+const response = await fetch(API_URL, {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify(formData)
+});
+
+const data = await response.json();
+
+if (response.ok) {
+showSuccess('Beneficiary registered successfully');
+resetForm();
+} else {
+showError('form', data.message || 'Registration failed');
+}
+
+} catch (error) {
+console.error('Error:', error);
+showError('form', 'Network error. Could not connect to server.');
+} finally {
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.disabled = false;
+submitBtn.textContent = 'Register';
+}
+});
+
+// Real-time validation on blur
+document.getElementById('firstName').addEventListener('blur', validateForm);
+document.getElementById('lastName').addEventListener('blur', validateForm);
+document.getElementById('place').addEventListener('blur', validateForm);
+document.getElementById('dob').addEventListener('blur', validateForm);
+document.getElementById('joinDate').addEventListener('blur', validateForm);
+document.getElementById('nationality').addEventListener('change', validateForm);
+document.getElementById('marital').addEventListener('change', validateForm);
+document.getElementById('camp').addEventListener('change', validateForm);
+document.querySelectorAll('input[name="gender"]').forEach(radio => {
+radio.addEventListener('change', validateForm);
+});
+
+</script>
+
+</body>
+</html>

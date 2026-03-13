@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcoming page</title>
+    <link rel="stylesheet" href="../css/welcomingPage.css" />
+  </head>
+  <body>
+    <div id="container">
+      <img src="../images/fca-logo.jpg" alt="FCA logo" id="img" />
+      <div id="insideContainer">
+        <p id="refugee" style="color: white; font-size: 20px">
+          Refugee Support System
+        </p>
+        <button type="button" id="registerBtn">Register</button>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("registerBtn")
+        .addEventListener("click", function () {
+          window.location.href = "registrationForm.html";
+        });
+    </script>
+  </body>
+</html>

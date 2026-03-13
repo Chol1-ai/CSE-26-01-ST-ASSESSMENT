@@ -1,0 +1,29 @@
+{
+  "name": "fca-refugee-support-system",
+  "version": "1.0.0",
+  "description": "FCA Refugee Support Program Registration System",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "client": "live-server public --port=3000",
+    "server": "nodemon server/server.js --port=5000"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "refugee",
+    "registration",
+    "fca",
+    "support"
+  ],
+  "author": "Charles Jada Sebit Emmanuel",
+  "license": "MIT"
+}

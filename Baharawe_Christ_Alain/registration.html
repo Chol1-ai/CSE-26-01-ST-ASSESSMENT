@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Beneficiary Registration Form</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:rgb(153, 204, 50)
+color(srgb red green)
+}
+.container{
+width:750px;
+margin:auto;
+background:white;
+padding:20px;
+}
+
+h2{
+text-align:center;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.row{
+display:flex;
+gap:20px;
+}
+
+.form-group{
+flex:1;
+margin-bottom:15px;
+gap: 1.5em;
+}
+
+input,select{
+width:100%;
+padding:10px;
+border:2px solid green;
+border-radius:4px;
+}
+
+.error{
+border-color:red;
+}
+
+.success{
+border-color:green;
+}
+
+.error-text{
+color:red;
+font-size:12px;
+}
+
+button{
+background:#8bc34a;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+justify-content:right;
+}
+
+label{
+color:#8bc34a 
+}
+
+h2{
+
+    color:#8bc34a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container_1{
+    display: flex;
+    background-color: #8bc34a;
+    font-size: 15px;
+}
+img{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+object-fit: cover; 
+}
+
+.card_1{
+    justify-content: center;
+    padding: 50px;
+    margin-left: 10px;
+    text-align: center;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+<div class="container_1">
+<div class="card_1">
+<div class="pale_green">
+    <div></div>
+<img src="images/fca-logo.jpg" alt="fca-logo">
+  
+</div>
+<div>
+<h1>Refugee Support Program</h1>
+
+</div>
+</div>
+
+
+<div class="container">
+
+<h2>BENEFICIARY REGISTRATION FORM</h2>
+
+<form id="beneficiaryForm">
+
+<div class="row">
+
+<div class="form-group">
+<label>First Name *</label>
+<input type="text" id="firstName" placeholder="Enter your Firstname">
+<div class="error-text" id="firstNameError"></div>
+</div><br><br>
+
+<div class="form-group">
+<label>Last Name *</label>
+<input type="text" id="lastName" placeholder="Enter your lastname">
+<div class="error-text" id="lastNameError"></div>
+</div>
+<br>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Date of Birth *</label>
+<input type="date" id="dob">
+<div class="error-text" id="dobError"></div>
+</div>
+<br><br>
+<div class="form-group">
+<label>Place of Birth *</label>
+<input type="text" id="placeBirth" placeholder="Enter your place of residence">
+<div class="error-text" id="placeBirthError"></div>
+</div>
+
+</div>
+
+<div class="form-group">
+<label>Gender</label>
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Nationality *</label>
+<select id="nationality">
+<option value="">Select Nationality</option>
+<option>Ugandan</option>
+<option>Kenyan</option>
+<option>Tanzanian</option>
+<option>Somali</option>
+</select>
+<div class="error-text" id="nationalityError"></div>
+</div>
+
+<div class="form-group">
+<label>Marital Status *</label>
+<select id="maritalStatus">
+<option value="">---Select Marital Status</option>
+<option>Single</option>
+<option>Married</option>
+<option>Divorced</option>
+</select>
+<div class="error-text" id="maritalError"></div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Settlement Camp *</label>
+<select id="camp">
+<option value="">---Select Settlement Camp</option>
+<option>Gulu settlement camp</option>
+<option>Arua settlement camp</option>
+<option>Mbarara settlement camp</option>
+<option>Mbarara settlement camp</option>
+<option>Mbarara settlement camp</option>
+
+
+</select>
+<div class="error-text" id="campError"></div>
+</div>
+
+<div class="form-group">
+<label>Date of Joining *</label>
+<input type="date" id="joinDate">
+<div class="error-text" id="joinDateError"></div>
+</div>
+
+</div>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+</div>
+<script>
+
+const form = document.getElementById("beneficiaryForm")
+
+function validateField(id,errorId){
+
+let field = document.getElementById(id)
+let error = document.getElementById(errorId)
+
+if(field.value.trim()===""){
+
+field.classList.remove("success")
+field.classList.add("error")
+
+error.textContent="This field is required"
+
+return false
+
+}else{
+
+field.classList.remove("error")
+field.classList.add("success")
+
+error.textContent=""
+
+return true
+
+}
+
+}
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault()
+
+let valid=true
+
+if(!validateField("firstName","firstNameError")) valid=false
+if(!validateField("lastName","lastNameError")) valid=false
+if(!validateField("dob","dobError")) valid=false
+if(!validateField("placeBirth","placeBirthError")) valid=false
+if(!validateField("joinDate","joinDateError")) valid=false
+
+
+let nationality=document.getElementById("nationality")
+let nationalityError=document.getElementById("nationalityError")
+
+if(nationality.value===""){
+
+nationality.classList.add("error")
+nationality.classList.remove("success")
+nationalityError.textContent="This field is required"
+valid=false
+
+}else{
+
+nationality.classList.remove("error")
+nationality.classList.add("success")
+nationalityError.textContent=""
+
+}
+
+let marital=document.getElementById("maritalStatus")
+let maritalError=document.getElementById("maritalError")
+
+if(marital.value===""){
+
+marital.classList.add("error")
+marital.classList.remove("success")
+maritalError.textContent="This field is required"
+valid=false
+
+}else{
+
+marital.classList.remove("error")
+marital.classList.add("success")
+maritalError.textContent=""
+
+}
+
+let camp=document.getElementById("camp")
+let campError=document.getElementById("campError")
+
+if(camp.value===""){
+
+camp.classList.add("error")
+camp.classList.remove("success")
+campError.textContent="This field is required"
+valid=false
+
+}else{
+
+camp.classList.remove("error")
+camp.classList.add("success")
+campError.textContent=""
+
+}
+
+if(valid){
+
+alert("Form submitted successfully")
+
+}
+
+})
+
+</script>
+
+</body>
+</html>

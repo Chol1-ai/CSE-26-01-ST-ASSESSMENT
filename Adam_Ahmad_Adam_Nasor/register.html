@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - FCA Refugee Support Program</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      :root {
+        --success: #27ae60;
+        --danger: #c0392b;
+        --dark: #2c3e50;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+      }
+      body {
+        font-family: Agency FB;
+      }
+      .sidebar-brand {
+        background-color: #99cc32;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+      img {
+        height: 150px;
+        width: 150px;
+      }
+
+      .form-section {
+        background: white;
+        padding: 2.5rem;
+      }
+
+      .btn-submit {
+        background-color: #99cc32;
+        color: white;
+        border: none;
+        font-size: 1.15rem;
+        padding: 0.85rem 2.5rem;
+        border-radius: 10px;
+        transition: all 0.25s;
+      }
+
+      .btn-submit:hover {
+        background-color: #99cc32;
+      }
+      .toast-container {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        max-width: 380px;
+      }
+
+      .toast {
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transform: translateX(120%);
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      .toast.show {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      .toast.success {
+        background: var(--success);
+      }
+
+      .toast.error {
+        background: var(--danger);
+      }
+
+      .toast-icon {
+        font-size: 24px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <div class="container-fluid p-0">
+      <div class="row g-0 min-vh-100">
+        <!-- Left sidebar / branding -->
+        <div class="col-lg-6 sidebar-brand text-center">
+          <div class="container-fluid">
+            <div class="sidebar-logo">
+              <div class="fca-logo">
+                <img
+                  src="/assessment/logo & colors/fca-logo.jpg"
+                  alt="fca-logo"
+                  class="rounded-pill"
+                />
+              </div>
+            </div>
+            <h3 class="mt-3 fw-bold text-white">Refugee Support Program</h3>
+          </div>
+        </div>
+
+        <!-- Right form -->
+        <div class="col-lg-6 form-section">
+          <h2 class="text-center mb-5 fw-bold text-success">
+            BENEFICIARY REGISTRATION FORM
+          </h2>
+          <p
+            class="toast-container position-fixed bottom-0 end-0 p-3"
+            id="toastContainer"
+          ></p>
+
+          <form id="registerForm">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >First Name <span class="text-danger">*</span></label
+                >
+                <input
+                  id="fristName"
+                  type="text"
+                  class="form-control"
+                  required
+                  placeholder="Enter your First name"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Last Name <span class="text-danger">*</span></label
+                >
+                <input
+                  id="lastName"
+                  type="text"
+                  class="form-control"
+                  required
+                  placeholder="Enter your Last name"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Date of birth <span class="text-danger">*</span></label
+                >
+                <input
+                  id="dateOfBirth"
+                  type="date"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Place of Birth <span class="text-danger">*</span></label
+                >
+                <input
+                  id="placeOfBirth"
+                  type="text"
+                  class="form-control"
+                  required
+                  placeholder="Enter your place of birth"
+                />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-semibold">Gender</label>
+                <div class="d-flex gap-5 mt-2">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="Male"
+                    />
+                    <label class="form-check-label" for="Male">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="Female"
+                      checked
+                    />
+                    <label class="form-check-label" for="Female">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Nationality <span class="text-danger">*</span></label
+                >
+                <select id="nationality" class="form-select" required>
+                  <option value="" selected>-- Select Nationality --</option>
+                  <option value="South Sudan">South Sudan</option>
+                  <option value="Democratic">
+                    Democratic Republic of Congo
+                  </option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Sudanese">Sudanese</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Marital status <span class="text-danger">*</span></label
+                >
+                <select id="maritalStatus" class="form-select" required>
+                  <option value="" selected>-- Select Marital status --</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Settlement camp <span class="text-danger">*</span></label
+                >
+                <select id="settlement" class="form-select" required>
+                  <option value="" selected>
+                    -- Select settlement camp --
+                  </option>
+                  <option value="Bidi Bidi">Bidi Bidi</option>
+                  <option value="Palorinya">Palorinya</option>
+                  <option value="Adjumani">Adjumani</option>
+                  <option value="Kiryandongo">Kiryandongo</option>
+                  <option value="Nakivale">Nakivale</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold"
+                  >Date joining Settlement camp
+                  <span class="text-danger">*</span></label
+                >
+                <input id="date" type="date" class="form-control" required />
+              </div>
+              <div class="col-6 text-center mt-4"></div>
+
+              <div class="col-6 text-center mt-4">
+                <button
+                  type="submit"
+                  class="btn btn-submit text-white px-5 w-100"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const API_URL = "http://localhost:5000";
+      // toast function
+      function showToast(message, type = "success") {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+        const icon = type === "success" ? "✓" : "✕";
+        toast.innerHTML = `
+              <span class="toast-icon">${icon}</span>
+              <span>${message}</span>
+            `;
+        container.appendChild(toast);
+
+        setTimeout(() => toast.classList.add("show"), 100);
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.remove(), 400);
+        }, 3000);
+      }
+      const registerForm = document.getElementById("registerForm");
+
+      async function registerBenf() {
+        const firstName = document.getElementById("fristName").value;
+        const lastName = document.getElementById("lastName").value;
+        const dateOfBirth = document.getElementById("dateOfBirth").value;
+        const placeOfBirth = document.getElementById("placeOfBirth").value;
+        const gender = document.querySelector(
+          'input[name="gender"]:checked',
+        ).value;
+        const nationality = document.getElementById("nationality").value;
+        const maritalStatus = document.getElementById("maritalStatus").value;
+        const settlementCamp = document.getElementById("settlement").value;
+        const dateJoinedCamp = document.getElementById("date").value;
+
+        const newRegister = {
+          firstName,
+          lastName,
+          dateOfBirth,
+          placeOfBirth,
+          gender,
+          nationality,
+          maritalStatus,
+          settlementCamp,
+          dateJoinedCamp,
+        };
+
+        if (
+          !firstName ||
+          !lastName ||
+          !placeOfBirth ||
+          !gender ||
+          !nationality ||
+          !maritalStatus ||
+          !settlementCamp ||
+          !dateJoinedCamp
+        ) {
+          showToast("Invalid Details. Please Try Again.", "error");
+          return;
+        }
+
+        try {
+          const response = await fetch(`${API_URL}/register`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newRegister),
+          });
+          if (response.ok) {
+            showToast("Added Successfully!");
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }
+        } catch (error) {
+          console.log(errpr);
+        }
+      }
+
+      registerForm.addEventListener("submit", registerBenf);
+    </script>
+  </body>
+</html>

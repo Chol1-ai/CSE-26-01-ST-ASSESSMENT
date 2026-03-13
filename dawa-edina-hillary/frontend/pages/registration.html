@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration</title>
+    <link rel="stylesheet" href="../assets/theme.css">
+    <link rel="stylesheet" href="../assets/registration.css">
+    <script src="../assets/registration.js" defer></script>
+</head>
+<body>
+    <main class="page">
+        <section class="side-panel">
+            <div class="logo-wrap">
+                <img src="../assets/images/fca-logo.jpg" alt="FCA Logo">
+            </div>
+            <p class="side-title">Refugee Support Program</p>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-card">
+                <div id="success-alert" class="alert success hidden">
+                    <div>
+                        <strong>Registration successful.</strong>
+                        <span>All fields have been reset.</span>
+                    </div>
+                    <button id="close-alert" type="button">Close</button>
+                </div>
+
+                <h1>Beneficiary Registration Form</h1>
+
+                <form id="registration-form" novalidate>
+                    <div class="grid two-col">
+                        <div class="field">
+                            <label for="firstName">First Name <span class="req">*</span></label>
+                            <input id="firstName" name="firstName" type="text" placeholder="Enter your First name" minlength="2" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="lastName">Last name <span class="req">*</span></label>
+                            <input id="lastName" name="lastName" type="text" placeholder="Enter your Last name" minlength="2" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="dateOfBirth">Date of birth <span class="req">*</span></label>
+                            <input id="dateOfBirth" name="dateOfBirth" type="date" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="placeOfBirth">Place of Birth <span class="req">*</span></label>
+                            <input id="placeOfBirth" name="placeOfBirth" type="text" placeholder="Enter your place of residence" minlength="2" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field radio-group">
+                            <label>Gender</label>
+                            <div class="radio-row">
+                                <label><input type="radio" name="gender" value="Male"> Male</label>
+                                <label><input type="radio" name="gender" value="Female" checked> Female</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="nationality">Nationality <span class="req">*</span></label>
+                            <select id="nationality" name="nationality" required>
+                                <option value="">-- Select Nationality --</option>
+                                <option>Ugandan</option>
+                                <option>Kenyan</option>
+                                <option>Tanzanian</option>
+                                <option>Burundian</option>
+                                <option>Rwandese</option>
+                                <option>Somali</option>
+                                <option>South Sudanese</option>
+                            </select>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="maritalStatus">Marital status <span class="req">*</span></label>
+                            <select id="maritalStatus" name="maritalStatus" required>
+                                <option value="">-- Select Marital status --</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Divorced</option>
+                                <option>Widowed</option>
+                                <option>Separated</option>
+                            </select>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="settlementCamp">Settlement camp <span class="req">*</span></label>
+                            <select id="settlementCamp" name="settlementCamp" required>
+                                <option value="">-- Select settlement camp --</option>
+                                <option>Gulu settlement camp</option>
+                                <option>Arua settlement camp</option>
+                                <option>Mbarara settlement camp</option>
+                                <option>Kasese settlement camp</option>
+                                <option>Busia settlement camp</option>
+                                <option>Mbale settlement camp</option>
+                                <option>Kigezi settlement camp</option>
+                            </select>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="dateOfRegistration">Date of registration <span class="req">*</span></label>
+                            <input id="dateOfRegistration" name="dateOfRegistration" type="date" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                        <div class="field">
+                            <label for="dateOfJoining">Date of joining Settlement camp <span class="req">*</span></label>
+                            <input id="dateOfJoining" name="dateOfJoining" type="date" required>
+                            <small class="error">This field is required</small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="cta" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

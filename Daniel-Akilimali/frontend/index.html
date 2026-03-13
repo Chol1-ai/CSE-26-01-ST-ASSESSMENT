@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCA - Beneficiary Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Teko:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+/* Core Variables */
+:root {
+    --pale-green: #99CC32;
+    --deep-green: #385723;
+    --white: #ffffff;
+    --light-gray: #b3b3b3;
+}
+
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+
+.main-layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.left-panel {
+    background-color: var(--pale-green);
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 100%;
+}
+
+.program-title {
+    color: var(--white);
+    font-family: 'Teko', sans-serif; 
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* --- Right Panel (Form) --- */
+.right-panel {
+    flex: 1.2; 
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    color: var(--deep-green);
+    font-family: 'Teko', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Form Grid --- */
+.registration-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem 2rem;
+}
+
+.full-width {
+    grid-column: span 2; 
+}
+
+.btn-container {
+    grid-column: 2; 
+}
+
+/* --- Form Elements --- */
+.form-group label {
+    display: block;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 0.3rem;
+}
+
+.required {
+    color: red;
+}
+
+.form-group input[type="text"]{
+
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--pale-green);
+    border-radius: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    height: 30px;
+    text-align: center;
+ 
+}
+.form-group select {
+
+width: 100%;
+padding: 0.6rem;
+border: 1px solid var(--pale-green);
+height: 50px;
+border-radius: 5px;
+text-align: center;
+font-size: 0.9rem;
+color: #333;
+font-family: 'Roboto Condensed', sans-serif;
+}
+.form-group input::placeholder {
+    color: var(--light-gray);
+}
+
+.form-group select::placeholder {
+    color: var(--light-gray);
+}
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--pale-green);
+    border-radius: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    height: 50px; 
+    text-align: center;
+    box-sizing: border-box; 
+}
+
+/* Optional: Gives the little calendar icon a pointer cursor so it feels clickable */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6; /* Softens the default black icon slightly */
+}
+
+
+
+/* --- Custom Radio Buttons --- */
+.radio-box {
+    border: 1px solid var(--pale-green);
+    padding: 0.6rem;
+    display: flex;
+    gap: 300px; /* Spacing between Male and Female */
+    width: 100%;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.custom-radio-label {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #333;
+    cursor: pointer;
+    
+}
+
+.custom-radio-label input[type="radio"] {
+    display: none; 
+}
+
+/* Create the new green circle */
+.radio-circle {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--deep-green);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Add the inner fill when checked */
+.custom-radio-label input[type="radio"]:checked + .radio-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--pale-green);
+    border-radius: 50%;
+}
+
+/* --- Submit Button --- */
+.register-btn {
+    width: 100%;
+    background-color: var(--pale-green);
+    color: var(--white);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.25rem;
+    padding: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.register-btn:hover {
+    background-color: var(--deep-green);
+}
+
+/* --- Error Messages --- */
+.error-message {
+    color: red;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.8rem;
+    text-align: right;
+    margin-top: 5px;
+    display: none; 
+}
+
+/* --- Custom Success Alert --- */
+.success-alert {
+    grid-column: span 2; 
+    background-color: var(--pale-green);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-alert {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--deep-green);
+}
+
+.close-alert:hover {
+    color: var(--white);
+}
+
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        
+        <section class="left-panel">
+            <img src="/Daniel-Akilimali/img/fca-logo.jpg" alt="FCA Logo" class="logo">
+            <h1 class="program-title">Refugee Support Program</h1>
+        </section>
+
+        <section class="right-panel">
+            <h2 class="form-title">BENEFICIARY REGISTRATION FORM</h2>
+            
+          <form class="registration-form" id="regForm">
+
+            <div id="success-alert" class="success-alert" style="display: none;">
+        Beneficiary successfully registered!
+        <span id="close-alert" class="close-alert">&times;</span>
+
+    </div>
+    <div class="form-group">
+        <label>First Name <span class="required">*</span></label>
+        <input type="text" id="firstName" placeholder="Enter your First name">
+        <div class="error-message">This field is required</div>
+    </div>
+    
+    <div class="form-group">
+        <label>Last name <span class="required">*</span></label>
+        <input type="text" id="lastName" placeholder="Enter your Last name">
+        <div class="error-message">This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Date of birth <span class="required">*</span></label>
+        <input type="date" id="dob">
+        <div class="error-message">This field is required</div>
+    </div>
+    
+    <div class="form-group">
+        <label>Place of Birth <span class="required">*</span></label>
+        <input type="text" id="pob" placeholder="Enter your place of residence">
+        <div class="error-message">This field is required</div>
+    </div>
+
+    <div class="form-group full-width">
+        <label>Gender</label>
+        <div class="radio-box">
+            <label class="custom-radio-label">
+                <input type="radio" name="gender" value="Male">
+                <span class="radio-circle"></span>
+                Male
+            </label>
+            <label class="custom-radio-label">
+                <input type="radio" name="gender" value="Female" checked>
+                <span class="radio-circle"></span>
+                Female
+            </label>
+        </div>
+        <div class="error-message">This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Nationality <span class="required">*</span></label>
+        <select id="nationality">
+            <option value="" disabled selected hidden>-- Select Nationality --</option>
+            <option value="Ugandan">Ugandan</option>
+            <option value="Kenyan">Kenyan</option>
+            <option value="Tanzanian">Tanzanian</option>
+            <option value="Burundian">Burundian</option>
+            <option value="Rwandese">Rwandese</option>
+            <option value="Somali">Somali</option>
+            <option value="South Sudanese">South Sudanese</option>
+        </select>
+        <div class="error-message">This field is required</div>
+    </div>
+    
+    <div class="form-group">
+        <label>Marital status <span class="required">*</span></label>
+        <select id="maritalStatus">
+            <option value="" disabled selected hidden>-- Select Marital status --</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+            <option value="Separated">Separated</option>
+        </select>
+        <div class="error-message">This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Settlement camp <span class="required">*</span></label>
+        <select id="camp">
+            <option value="" disabled selected hidden>-- Select settlement camp --</option>
+            <option value="Gulu">Gulu settlement camp</option>
+            <option value="Arua">Arua settlement camp</option>
+            <option value="Mbarara">Mbarara settlement camp</option>
+            <option value="Kasese">Kasese settlement camp</option>
+            <option value="Busia">Busia settlement camp</option>
+            <option value="Mbale">Mbale settlement camp</option>
+            <option value="Kigezi">Kigezi settlement camp</option>
+        </select>
+        <div class="error-message">This field is required</div>
+    </div>
+    
+    <div class="form-group">
+        <label>Date of joining Settlement camp <span class="required">*</span></label>
+        <input type="date" id="joiningDate">
+        <div class="error-message">This field is required</div>
+    </div>
+
+    <div class="form-group btn-container">
+        <button type="submit" class="register-btn">Register</button>
+    </div>
+</form>      
+
+</section>
+
+</div>
+
+<script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const fName = document.getElementById('firstName');
+        const lName = document.getElementById('lastName');
+        const dob = document.getElementById('dob');
+        const pob = document.getElementById('pob');
+        const nationality = document.getElementById('nationality');
+        const maritalStatus = document.getElementById('maritalStatus');
+        const camp = document.getElementById('camp');
+        const joiningDate = document.getElementById('joiningDate');
+        const successAlert = document.getElementById('success-alert');
+
+        const allFields = [fName, lName, dob, pob, nationality, maritalStatus, camp, joiningDate];
+        
+        
+        allFields.forEach(field => {
+            field.style.border = '1px solid var(--pale-green)';
+            const errorMsg = field.parentElement.querySelector('.error-message');
+            if (errorMsg) errorMsg.style.display = 'none';
+        });
+
+        let hasError = false;
+
+        
+        function markInvalid(element, customMessage = "This field is required") {
+            element.style.border = '1px solid red';
+            const errorMsg = element.parentElement.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.innerText = customMessage; 
+                errorMsg.style.display = 'block';   
+            }
+            hasError = true;
+        }
+
+       
+        if (fName.value.trim() === "") markInvalid(fName);
+        else if (fName.value.trim().length < 2) markInvalid(fName, "Must be at least 2 characters");
+
+        if (lName.value.trim() === "") markInvalid(lName);
+        else if (lName.value.trim().length < 2) markInvalid(lName, "Must be at least 2 characters");
+
+        if (pob.value.trim() === "") markInvalid(pob);
+        else if (pob.value.trim().length < 2) markInvalid(pob, "Must be at least 2 characters");
+
+       
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); 
+
+        if (!dob.value) markInvalid(dob);
+        else if (new Date(dob.value) >= today) markInvalid(dob, "Date must be before today");
+
+        if (!joiningDate.value) markInvalid(joiningDate);
+        else if (new Date(joiningDate.value) <= today) markInvalid(joiningDate, "Date must be after Registration");
+        
+
+        
+        if (nationality.value === "") markInvalid(nationality);
+        if (maritalStatus.value === "") markInvalid(maritalStatus);
+        if (camp.value === "") markInvalid(camp);
+
+        
+        if (!hasError) {
+            const formData = {
+                firstName: fName.value.trim(),
+                lastName: lName.value.trim(),
+                dob: dob.value,
+                pob: pob.value.trim(),
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                nationality: nationality.value,
+                maritalStatus: maritalStatus.value,
+                camp: camp.value,
+                joiningDate: joiningDate.value
+            };
+
+            // 2. Send the data to your Express backend
+            fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                successAlert.style.display = 'block'; 
+                
+                allFields.forEach(field => {
+                    field.style.border = '1px solid var(--pale-green)';
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong with the server. Please try again.');
+            });
+        }
+    
+    document.getElementById('close-alert').addEventListener('click', function() {
+        document.getElementById('success-alert').style.display = 'none';
+        document.getElementById('regForm').reset();
+    });
+    }
+);
+</script>
+</body>
+</html>

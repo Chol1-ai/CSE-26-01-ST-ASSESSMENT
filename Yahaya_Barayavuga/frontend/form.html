@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration</title>
+
+    <!-- Pulling in the form stylesheet to dress this page properly -->
+    <link rel="stylesheet" href="./css/form.css">
+
+    <!-- The original fonts refused to cooperate so we fetched alternatives from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
+    <!-- Small logo that appears on the browser tab -->
+    <link rel="icon" href="./assets/fca-logo.jpg">
+</head>
+
+<body>
+
+    <!-- The whole page sits inside this two-sided layout -->
+    <div class="split-layout">
+
+        <!-- Left side carries the logo and programme name -->
+        <div class="brand-side">
+            <div class="logo-container">
+                <img src="./assets/fca-logo.jpg" alt="FCA Logo">
+            </div>
+            <h1 class="title">Refugee Support Program</h1>
+        </div>
+
+        <!-- Right side is where all the registration fields live -->
+        <div class="form-side">
+            <h2 class="form-header">BENEFICIARY REGISTRATION FORM</h2>
+
+            <!-- This green banner shows when registration goes through successfully -->
+            <div class="success-alert" id="successAlert" style="display: none;">
+                <span>Beneficiary registered successfully</span>
+                <!-- Clicking this X will dismiss the success message -->
+                <span class="close-btn" id="closeAlertBtn">&times;</span>
+            </div>
+
+            <!-- The main registration form, novalidate lets our JS handle the checking -->
+            <form id="registrationForm" class="form-grid" novalidate>
+
+                <!-- First name field with its two possible error messages -->
+                <div class="form-group">
+                    <label>First Name <span class="asterisk">*</span></label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Enter your First name">
+                    <span class="error-text error-empty">This field is required</span>
+                    <span class="error-text error-invalid">Must be 3 or more letters</span>
+                </div>
+
+                <!-- Last name field, same validation rules as first name -->
+                <div class="form-group">
+                    <label>Last name <span class="asterisk">*</span></label>
+                    <input type="text" id="lastName" class="form-control" placeholder="Enter your Last name">
+                    <span class="error-text error-empty">This field is required</span>
+                    <span class="error-text error-invalid">Must be 3 or more letters</span>
+                </div>
+
+                <!-- Date of birth starts as text then switches to a date picker on focus -->
+                <div class="form-group">
+                    <label>Date of birth <span class="asterisk">*</span></label>
+                    <input type="text" id="dob" class="form-control" placeholder="YYYY / MM / DD"
+                        onfocus="(this.type='date')">
+                    <span class="error-text error-empty">This field is required</span>
+                    <span class="error-text error-invalid">Must be before registration date</span>
+                </div>
+
+                <!-- Where the person was born, needs at least 3 characters -->
+                <div class="form-group">
+                    <label>Place of Birth <span class="asterisk">*</span></label>
+                    <input type="text" id="placeOfBirth" class="form-control"
+                        placeholder="Enter your place of residence">
+                    <span class="error-text error-empty">This field is required</span>
+                    <span class="error-text error-invalid">Must be 3 or more letters</span>
+                </div>
+
+                <!-- Gender radio buttons spanning the full width of the form -->
+                <div class="form-group full-width">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-item"><input type="radio" name="gender" value="Male"> Male</label>
+                        <!-- Female is selected by default -->
+                        <label class="radio-item"><input type="radio" name="gender" value="Female" checked>
+                            Female</label>
+                    </div>
+                </div>
+
+                <!-- Dropdown for nationality, only East African countries are listed -->
+                <div class="form-group">
+                    <label>Nationality <span class="asterisk">*</span></label>
+                    <select id="nationality" class="form-control">
+                        <option value="" disabled selected>-- Select Nationality --</option>
+                        <option value="Ugandan">Ugandan</option>
+                        <option value="Kenyan">Kenyan</option>
+                        <option value="Tanzanian">Tanzanian</option>
+                        <option value="Burundian">Burundian</option>
+                        <option value="Rwandese">Rwandese</option>
+                        <option value="Somali">Somali</option>
+                        <option value="South Sudanese">South Sudanese</option>
+                    </select>
+                    <span class="error-text error-empty">This field is required</span>
+                </div>
+
+                <!-- Marital status dropdown with the common options -->
+                <div class="form-group">
+                    <label>Marital status <span class="asterisk">*</span></label>
+                    <select id="maritalStatus" class="form-control">
+                        <option value="" disabled selected>-- Select Marital status --</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Separated">Separated</option>
+                    </select>
+                    <span class="error-text error-empty">This field is required</span>
+                </div>
+
+                <!-- Dropdown listing the available settlement camps by region -->
+                <div class="form-group">
+                    <label>Settlement camp <span class="asterisk">*</span></label>
+                    <select id="settlementCamp" class="form-control">
+                        <option value="" disabled selected>-- Select settlement camp --</option>
+                        <option value="Gulu">Gulu settlement camp</option>
+                        <option value="Arua">Arua settlement camp</option>
+                        <option value="Mbarara">Mbarara settlement camp</option>
+                        <option value="Kasese">Kasese settlement camp</option>
+                        <option value="Busia">Busia settlement camp</option>
+                        <option value="Mbale">Mbale settlement camp</option>
+                        <option value="Kigezi">Kigezi settlement camp</option>
+                    </select>
+                    <span class="error-text error-empty">This field is required</span>
+                </div>
+
+                <!-- Date they arrived at the camp, must come after their date of birth -->
+                <div class="form-group">
+                    <label>Date of joining Settlement camp <span class="asterisk">*</span></label>
+                    <input type="text" id="joiningDate" class="form-control" placeholder="YYYY / MM / DD"
+                        onfocus="(this.type='date')">
+                    <span class="error-text error-empty">This field is required</span>
+                    <span class="error-text error-invalid">Must be after registration date</span>
+                </div>
+
+                <!-- Submit button takes up the full width at the bottom -->
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-btn">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- The JS file that handles all the form validation and submission -->
+    <script src="js/form.js"></script>
+</body>
+
+</html>

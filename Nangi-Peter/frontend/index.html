@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCA Kampala - Refugee Support Program</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div class="landing-content">
+            <!-- FCA Logo - Using your local image file -->
+            <div class="logo-circle">
+                <img src="assets/fca-logo.jpg" alt="FCA Kampala Logo" class="fca-logo-image">
+            </div>
+            
+            <!-- Program Title -->
+            <h1 class="program-title">Refugee Support Program</h1>
+            
+            <!-- Register Button -->
+            <a href="#" class="register-button" id="registerBtn">Register</a>
+        </div>
+    </div>
+
+    <!-- Registration Page -->
+    <div class="registration-page" id="registrationPage">
+        <div class="split-layout">
+            <!-- Left Panel - Branding (50% Pale Green) -->
+            <div class="branding-panel">
+                <div class="branding-content">
+                    <!-- FCA Logo - Using your local image file -->
+                    <div class="logo-circle large">
+                        <img src="assets/fca-logo.jpg" alt="" class="fca-logo-image">
+                    </div>
+                    
+                    <h2 class="branding-title">Refugee Support Program</h2>
+                    
+                    <!-- Decorative elements -->
+                    <div class="branding-decoration">
+                        <div class="decoration-line"></div>
+                        <p class="branding-message">Providing hope and support to refugees in Uganda</p>
+                        <div class="decoration-line"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel - Form (50% White) -->
+            <div class="form-panel">
+                <div class="form-wrapper">
+                    <!-- Form Title -->
+                    <h2 class="form-title">BENEFICIARY REGISTRATION FORM</h2>
+                    
+                    <!-- Alert Container for Success Message -->
+                    <div id="alertContainer" class="alert-container"></div>
+                    
+                    <!-- Registration Form -->
+                    <form id="registrationForm" class="registration-form">
+                        <!-- Row 1: First Name & Last Name -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" 
+                                       placeholder="Enter first name">
+                                <span class="error-message" id="firstNameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" 
+                                       placeholder="Enter last name">
+                                <span class="error-message" id="lastNameError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2: Place of Birth & Date of Birth -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="placeOfBirth">Place of Birth *</label>
+                                <input type="text" id="placeOfBirth" name="placeOfBirth" 
+                                       placeholder="Enter place of birth">
+                                <span class="error-message" id="placeOfBirthError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="dob">Date of Birth *</label>
+                                <input type="date" id="dob" name="dob">
+                                <span class="error-message" id="dobError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 3: Gender & Nationality -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Gender *</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="gender" value="female" checked>
+                                        <span class="radio-custom"></span>
+                                        Female
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="gender" value="male">
+                                        <span class="radio-custom"></span>
+                                        Male
+                                    </label>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nationality">Nationality *</label>
+                                <select id="nationality" name="nationality">
+                                    <option value="">Select Nationality</option>
+                                    <option value="Ugandan">Ugandan</option>
+                                    <option value="Kenyan">Kenyan</option>
+                                    <option value="Tanzanian">Tanzanian</option>
+                                    <option value="Burundian">Burundian</option>
+                                    <option value="Rwandese">Rwandese</option>
+                                    <option value="Somali">Somali</option>
+                                    <option value="South Sudanese">South Sudanese</option>
+                                </select>
+                                <span class="error-message" id="nationalityError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 4: Marital Status & Settlement Camp -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="maritalStatus">Marital Status *</label>
+                                <select id="maritalStatus" name="maritalStatus">
+                                    <option value="">Select Marital Status</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Separated">Separated</option>
+                                </select>
+                                <span class="error-message" id="maritalStatusError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="settlementCamp">Settlement Camp *</label>
+                                <select id="settlementCamp" name="settlementCamp">
+                                    <option value="">Select Settlement Camp</option>
+                                    <option value="Gulu Settlement Camp">Gulu</option>
+                                    <option value="Arua Settlement Camp">Arua</option>
+                                    <option value="Mbarara Settlement Camp">Mbarara</option>
+                                    <option value="Kasese Settlement Camp">Kasese</option>
+                                    <option value="Busia Settlement Camp">Busia</option>
+                                    <option value="Mbale Settlement Camp">Mbale</option>
+                                    <option value="Kigezi Settlement Camp">Kigezi</option>
+                                </select>
+                                <span class="error-message" id="settlementCampError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 5: Date of Joining (Full Width) -->
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="dateOfJoining">Date of Joining Settlement Camp *</label>
+                                <input type="date" id="dateOfJoining" name="dateOfJoining">
+                                <span class="error-message" id="dateOfJoiningError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Register Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn" id="submitBtn">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/signup.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+
+            <div class="logo">
+                <img src="./assets/logo & colors/fca-logo.jpg" alt="" style="width: 200px; height: 200px; border-radius: 50%;">
+            </div>
+
+            <h2>Refugee Support Program</h2>
+
+        </div>
+
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+
+            <h2>BENEFICIARY REGISTRATION FORM</h2>
+            <div class="success-slot">
+                <div id="successBox" class="success-box" role="status" aria-live="polite" hidden>
+                    <span>beneficiary registered successfully</span>
+                    <button type="button" class="success-close" aria-label="Close success message">×</button>
+                </div>
+            </div>
+
+            <form id="registrationForm" novalidate>
+
+                <div class="row">
+                    <div class="field">
+                        <label>First Name <span>*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your First name">
+                        <div class="field-error"></div>
+                    </div>
+
+                    <div class="field">
+                        <label>Last name <span>*</span></label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter your Last name">
+                        <div class="field-error"></div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="field">
+                        <label>Date of birth <span>*</span></label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        <div class="field-error"></div>
+                    </div>
+
+                    <div class="field">
+                        <label>Place of Birth <span>*</span></label>
+                        <input type="text" id="placeOfBirth" name="placeOfBirth" placeholder="Enter your place of residence">
+                        <div class="field-error"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label>Date of registration <span>*</span></label>
+                        <input type="date" id="dateOfRegistration" name="dateOfRegistration">
+                        <div class="field-error"></div>
+                    </div>
+                </div>
+                <label>Gender</label>
+                <div class="gender-box">
+                    
+                    <div class="gender-options">
+
+                        <label class="radio" for="gender-male">
+                            <input type="radio" id="gender-male" name="gender" value="male">
+                            <span class="circle"></span>
+                            Male
+                        </label>
+
+                        <label class="radio" for="gender-female">
+                            <input type="radio" id="gender-female" name="gender" value="female" checked>
+                            <span class="circle"></span>
+                            Female
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="field">
+                        <label>Nationality <span>*</span></label>
+                        <select id="nationality" name="nationality">
+                            <option value="">-- Select Nationality --</option>
+                            <option>Ugandan</option>
+                            <option>Kenyan</option>
+                            <option>Tanzanian</option>
+                            <option>Burundian</option>
+                            <option>Rwandese</option>
+                            <option>Somali</option>
+                            <option>South Sudanese</option>
+                        </select>
+                        <div class="field-error"></div>
+                    </div>
+
+                    <div class="field">
+                        <label>Marital status <span>*</span></label>
+                        <select id="maritalStatus" name="maritalStatus">
+                            <option value="">-- Select Marital status --</option>
+                            <option>Single</option>
+                            <option>Married</option>
+                            <option>Divorced</option>
+                            <option>Widowed</option>
+                            <option>Separated</option>
+                        </select>
+                        <div class="field-error"></div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="field">
+                        <label>Settlement camp <span>*</span></label>
+                        <select id="settlementCamp" name="settlementCamp">
+                            <option value="">-- Select settlement camp --</option>
+                            <option>Gulu settlement camp</option>
+                            <option>Arua settlement camp</option>
+                            <option>Mbarara settlement camp</option>
+                            <option>Kasese settlement camp</option>
+                            <option>Busia settlement camp</option>
+                            <option>Mbale settlement camp</option>
+                            <option>Kigezi settlement camp</option>
+                        </select>
+                        <div class="field-error"></div>
+                    </div>
+
+                    <div class="field">
+                        <label>Date of joining Settlement camp <span>*</span></label>
+                        <input type="date" id="dateOfJoiningCamp" name="dateOfJoiningCamp">
+                        <div class="field-error"></div>
+                    </div>
+                </div>
+
+
+                <button class="btn" type="submit">Register</button>
+
+            </form>
+
+        </div>
+
+    </div>
+    <script src="./js/signup.js"></script>
+</body>
+
+</html>

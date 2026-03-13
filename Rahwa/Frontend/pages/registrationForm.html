@@ -1,0 +1,120 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beneficiary Registration Form</title>
+    <link rel="stylesheet" href="../css/registrationForm.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <img src="../images/fca-logo.jpg" alt="FCA logo" id="img" />
+        <div id="insideContainer">
+          <p id="refugee" style="color: white; font-size: 30px">
+            Refugee Support System
+          </p>
+        </div>
+      </div>
+
+      <div class="right">
+      <h2 style="text-align: center; color: #385723;" id="formTitle">Beneficiary Registration Form</h2>
+
+      <form id="registrationForm" novalidate>
+        <div class="formRow">
+          <div class="formGroup">
+            <label>First Name *</label>
+            <input type="text" name="firstName" id="firstName" required minlength="2" />
+            <span class="error" id="firstNameError"></span>
+          </div>
+
+          <div class="formGroup">
+            <label>Last Name *</label>
+            <input type="text" name="lastName" id="lastName" required minlength="2" />
+            <span class="error" id="lastNameError"></span>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="formGroup">
+            <label>Date of Birth *</label>
+            <input type="date" name="dob" id="dob" required />
+            <span class="error" id="dobError"></span>
+          </div>
+
+          <div class="formGroup">
+            <label>Place of Birth *</label>
+            <input type="text" name="birthPlace" id="birthPlace" required minlength="2" />
+            <span class="error" id="birthPlaceError"></span>
+          </div>
+        </div>
+
+        <div class="genderGroup">
+          <label>Gender</label>
+
+          <div class="radioGroup">
+            <label>
+              <input type="radio" name="gender" value="male" />
+              Male
+            </label>
+
+            <label>
+              <input type="radio" name="gender" value="female" />
+              Female
+            </label>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="formGroup">
+            <label>Nationality *</label>
+            <select name="nationality" id="nationality" required>
+              <option value="">Select Nationality</option>
+              <option>Ugandan</option>
+              <option>Kenyan</option>
+              <option>Sudanese</option>
+            </select>
+            <span class="error" id="nationalityError"></span>
+          </div>
+
+          <div class="formGroup">
+            <label>Marital Status *</label>
+            <select name="maritalStatus" id="maritalStatus" required>
+              <option value="">Select Marital Status</option>
+              <option>Single</option>
+              <option>Married</option>
+            </select>
+            <span class="error" id="maritalStatusError"></span>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <div class="formGroup">
+            <label>Settlement Camp *</label>
+            <select name="camp" id="camp" required>
+              <option value="">Select Settlement Camp</option>
+              <option>Bidibidi</option>
+              <option>Adjumani</option>
+              <option>Rhino Camp</option>
+              <option>Nakivale</option>
+              <option>Kiryandongo</option>
+            </select>
+            <span class="error" id="campError"></span>
+          </div>
+
+          <div class="formGroup">
+            <label>Date of Joining Settlement Camp *</label>
+            <input type="date" name="joinDate" id="joinDate" required />
+            <span class="error" id="joinDateError"></span>
+          </div>
+        </div>
+
+        <div class="btnContainer">
+        <button type="submit" id="btnRegister">Register</button>
+ 
+        </div>
+      </form>
+    </div>
+
+    <script src="../js/registrationForm.js"></script>
+  </body>
+</html>

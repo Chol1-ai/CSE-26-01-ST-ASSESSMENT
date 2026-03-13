@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            margin: auto;
+            margin-top: 50px;
+            background: white;
+
+        }
+        /* left side */
+        .left{
+            width: 40%;
+            background: #9acd32;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .logo{
+            width: 150px;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+        }
+        .left h1{
+            margin-top: 20px;
+            font-size: 28px;
+        }
+        /* right side */
+        .right{
+            width: 60%;
+            padding: 30px;
+        }
+        .right h2{
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 22px;
+            color: #2f4f2f;
+        }
+        /* .row{
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        } */
+        .input-box{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .input, select{
+            padding: 10px;
+            border: 2px solid #ccc;
+            background: #eee;
+            
+    
+
+        }
+        button{
+            margin-top: 30px;
+            padding: 12px 60px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background: #9acd32;
+            color: white;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+           /* .row{
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            }
+            .row input{
+                width: calc(50% - 10px)
+             */
+            /* } */
+            
+            
+            
+
+        
+        
+        </style>
+        
+</head>
+<body>
+    <div class="container"> 
+        <!-- left side -->
+         <div class="left">
+            <img src="fca-logo.jpg" class="logo" alt="FCA Logo">
+            <h1>refugee support pragram</h1>
+         </div>
+            <!-- right side -->
+            <div class="right">
+                <h2>benefit registration form</h2>
+                <form id="form">
+                    <div class = "row">
+                        <div class ="input-box">
+                            <label for="Fname">first name</label>
+                            <input type="text" id="Fname" placeholder="enter your first name" required>
+                        </div>
+                        <div class ="input-box">
+                            <label for="Lname">last name</label>
+                            <input type="text" id="Lname" placeholder="enter your last name" required>
+                        </div>
+                        
+                    
+                    <div class = "row">
+                        <div class ="input-box">
+                            <label for="DOB">date of birth</label>
+                            <input type="date" id="DOB" placeholder="enter your date of birth" required>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class ="input-box">
+                            <label >gender</label>
+                            <label ><input type="radio" name="gender" value="male" required>male</label>
+                            <label ><input type="radio" name="gender" value="female" required>female</label>
+                        </div>
+                </div>
+                <div class = "row">
+                    <div class ="input-box">
+                        <label for="nationality">nationality</label>
+                        <select id="nationality" title="Select your nationality">
+                            <option value="sudanese">sudan</option>
+                            <option value="syrian">uganda</option>
+                            <option value="yemeni">kenya</option>
+                            <option value="somali">somali</option>
+                        </select>
+                    </div>
+                </div>  
+                <div class = "row">
+                    <div class ="input-box">
+                        <label for="marital-status">marital status</label>
+                        <select id="marital-status" title="Select your marital status">
+                            <option value="single">single</option>
+                            <option value="married">married</option>
+                            <option value="divorced">divorced</option>
+                            <option value="widowed">widowed</option>
+                            
+                        </select>
+                    </div> 
+                </div>
+                <div class = "row">
+                    <div class ="input-box " required>
+                        <label for="settlement">settlement camp</label>
+                        <select id="settlement" title="Select your settlement camp">
+                            <option value="">Gulu settlement camp</option>
+                            <option value=""> Arua settlement camp</option>
+                            <option value=""> Mbarara settlement camp</option>
+                            <option value="">Kasese settlement camp</option>
+                            <option value="">Busia settlement camp</option>
+                            <option value="">Mbale settlement camp</option>
+                        </select>
+                    </div>
+                </div> 
+                <div class = "row">
+                    <div class ="input-box">
+                        <label for="joining-date">data of joining</label>
+                        <input type="date" id="joining-date" placeholder="Enter date of joining" title="Enter date of joining" required>
+                        
+
+                    </div>
+                </div>
+                <button type="submit">register</button>
+
+       </form>
+        </div>
+
+            
+    </div>
+    <iscript src="index.js"></script>
+        
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* .pale_green{
+
+    background-color: rgb(153, 204, 50);
+    text-align: center;
+    padding: 300px;
+    width: 300px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+button{
+    text-align: center;
+    color:rgb(153, 204, 50);
+    border: none; 
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+ h1{
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+ }
+.log{
+    width: 100px;
+    height: 100px;
+    border-radius:50px;
+}
+ image{
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+ } */
+
+
+ body{
+
+    background-color: rgb(153, 204, 50);
+    font-family:Arial Narrow;
+display: flex;
+color: white ;
+text-align: center;
+justify-content: center;
+padding: auto;
+margin-top: 150px;
+
+ }
+ button{
+    text-align: center;
+    color:rgb(153, 204, 50);
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+ }
+ img{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+object-fit: cover; 
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FCA Refugee Beneficiary Registration</title>
+    <style>
+      body {
+        font-family: "Agency FB", sans-serif;
+        background: #f8f9fa;
+      }
+      h1 {
+        text-align: center;
+        color: rgb(56, 87, 35);
+        margin-top: 20px;
+      }
+      .registration-form {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+      }
+      .user-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: rgb(56, 87, 35);
+      }
+      input,
+      select {
+        width: 90%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      select,
+      input:invalid {
+        border-color: rgb(221, 37, 37);
+      }
+      select,
+      input:valid {
+        border-color: green;
+      }
+      .radio-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .success-alert {
+        display: none;
+        background: #4caf50;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        position: relative;
+        font-size: 20px;
+      }
+      .success-alert span.close {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background: rgb(153, 204, 50);
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="registration-form">
+      <div class="success-alert" id="successAlert">
+        Successfully submitted form
+        <span class="close" onclick="closeAlert()">✖</span>
+      </div>
+      <h1>Beneficiary Registration Form</h1>
+
+      <div class="user-details">
+        <div>
+          <label for="firstname">First Name</label>
+          <input
+            type="text"
+            id="firstname"
+            required
+            minlength="2"
+            placeholder="Enter first name"
+          />
+        </div>
+
+        <div>
+          <label for="lastname">Last Name</label>
+          <input
+            type="text"
+            id="lastname"
+            required
+            minlength="2"
+            placeholder="Enter last name"
+          />
+        </div>
+
+        <div>
+          <label for="birth">Date of Birth</label>
+          <input type="date" id="birth" required />
+        </div>
+
+        <div>
+          <label for="place">Place of Birth</label>
+          <input
+            type="text"
+            id="place"
+            required
+            minlength="2"
+            placeholder="Enter place of birth"
+          />
+        </div>
+
+        <div>
+          <label>Gender</label>
+          <div class="radio-group">
+            <input type="radio" name="gender" value="Female" checked /> Female
+            <input type="radio" name="gender" value="Male" /> Male
+          </div>
+        </div>
+
+        <div>
+          <label for="country">Nationality</label>
+          <select id="country" required>
+            <option value="">--Select Nationality--</option>
+            <option>Ugandan</option>
+            <option>Kenyan</option>
+            <option>Tanzanian</option>
+            <option>Burundian</option>
+            <option>Rwandese</option>
+            <option>Somali</option>
+            <option>South Sudanese</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="status">Marital Status</label>
+          <select id="status" required>
+            <option value="">--Select Marital Status--</option>
+            <option>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+            <option>Widowed</option>
+            <option>Separated</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="settlement">Settlement Camp</label>
+          <select id="settlement" required>
+            <option value="">--Select Settlement Camp--</option>
+            <option>Gulu settlement camp</option>
+            <option>Arua settlement camp</option>
+            <option>Mbarara settlement camp</option>
+            <option>Kasese settlement camp</option>
+            <option>Busia settlement camp</option>
+            <option>Mbale settlement camp</option>
+            <option>Kigezi settlement camp</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="joining">Date of Joining Settlement Camp</label>
+          <input type="date" id="joining" required />
+        </div>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <script>
+      const form = document.querySelector(".registration-form");
+      const successAlert = document.getElementById("successAlert");
+
+      function closeAlert() {
+        successAlert.style.display = "none";
+        form.reset();
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fname = document.getElementById("firstname").value.trim();
+        const lname = document.getElementById("lastname").value.trim();
+        const place = document.getElementById("place").value.trim();
+        const birth = new Date(document.getElementById("birth").value);
+        const joining = new Date(document.getElementById("joining").value);
+        const gender = document.querySelector(
+          'input[name="gender"]:checked',
+        ).value;
+        const nationality = document.getElementById("country").value;
+        const status = document.getElementById("status").value;
+        const settlement = document.getElementById("settlement").value;
+        const today = new Date();
+
+        // Validation
+        if (fname.length < 2 || lname.length < 2 || place.length < 2) {
+          alert(
+            "First Name, Last Name, and Place of Birth must be at least 2 characters long.",
+          );
+          return;
+        }
+
+        if (birth >= today) {
+          alert("Date of Birth must be before today.");
+          return;
+        }
+
+        if (joining <= today) {
+          alert("Joining Date must be after today.");
+          return;
+        }
+
+        if (!nationality || !status || !settlement) {
+          alert(
+            "Please select Nationality, Marital Status, and Settlement Camp.",
+          );
+          return;
+        }
+
+        const data = {
+          first_name: fname,
+          last_name: lname,
+          place_of_birth: place,
+          date_of_birth: birth.toISOString().split("T")[0],
+          gender,
+          nationality,
+          marital_status: status,
+          settlement_camp: settlement,
+          joining_date: joining.toISOString().split("T")[0],
+        };
+
+        try {
+          await fetch("http://localhost:3000/api/registrations", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          successAlert.style.display = "block";
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          alert("Failed to submit form. Please try again.");
+        }
+      });
+    </script>
+  </body>
+</html>

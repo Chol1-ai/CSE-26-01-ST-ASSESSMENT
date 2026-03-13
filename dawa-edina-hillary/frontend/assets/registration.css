@@ -1,0 +1,275 @@
+/* Page body styling */
+body{
+    background: var(--white); /* Sets page background color */
+    color: var(--ink); /* Sets default text color */
+}
+
+/* Main page layout */
+.page{
+    min-height: 100vh; /* Page takes full viewport height */
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: 42% 58%; /* Two columns: sidebar and form */
+}
+
+/* Left side panel styling */
+.side-panel{
+    background: var(--pale-green); /* Background color */
+    display: grid;
+    place-items: center; /* Centers content horizontally and vertically */
+    padding: 60px 24px; /* Space inside panel */
+    text-align: center; /* Center text */
+}
+
+/* Logo container */
+.logo-wrap{
+    width: 260px;
+    height: 260px;
+    background: var(--white); /* White circular background */
+    border-radius: 50%; /* Makes the container circular */
+    display: grid;
+    place-items: center; /* Center the logo image */
+    box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.6); /* Inner border effect */
+}
+
+/* Logo image styling */
+.logo-wrap img{
+    width: 70%; /* Image width relative to container */
+    height: 70%;
+    object-fit: contain; /* Keeps image proportions */
+}
+
+/* Title text in side panel */
+.side-title{
+    margin-top: 36px;
+    font-size: 1.75rem; /* Large font size */
+    letter-spacing: 0.04em; /* Space between letters */
+    color: var(--white); /* White text */
+}
+
+/* Right side form panel */
+.form-panel{
+    display: grid;
+    place-items: center; /* Centers form card */
+    padding: 48px 6%;
+    background: var(--white);
+}
+
+/* Form container */
+.form-card{
+    width: min(760px, 100%); /* Responsive width */
+}
+
+/* Main heading style */
+h1{
+    text-transform: uppercase; /* Uppercase text */
+    font-size: 1.85rem;
+    letter-spacing: 0.04em;
+    color: var(--deep-green);
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+/* Alert message container */
+.alert{
+    display: flex;
+    justify-content: space-between; /* Space between message and button */
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+/* Success alert styling */
+.alert.success{
+    background: rgba(153, 204, 50, 0.2); /* Light green background */
+    border: 1px solid rgba(56, 87, 35, 0.4);
+}
+
+/* Close button in alert */
+.alert.success button{
+    background: transparent;
+    border: none;
+    color: var(--deep-green);
+    font-weight: 600;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hidden elements */
+.hidden{
+    display: none; /* Completely hides element */
+}
+
+/* Hidden input for accessibility */
+.hidden-input{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Visually hidden but still accessible */
+    border: 0;
+}
+
+/* Grid layout for form fields */
+.grid{
+    display: grid;
+    gap: 18px 16px; /* Row and column spacing */
+}
+
+/* Two-column grid */
+.grid.two-col{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Individual form field container */
+.field{
+    display: flex;
+    flex-direction: column; /* Stack label and input */
+    gap: 8px;
+}
+
+/* Label styling */
+.field label{
+    font-weight: 700;
+    color: var(--deep-green);
+}
+
+/* Required field star */
+.req{
+    color: #ff0000;
+}
+
+/* Input and select field styling */
+.field input,
+.field select{
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 2px solid var(--pale-green);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-md);
+    color: #4b4b4b;
+    background: var(--white);
+}
+
+/* Placeholder text styling */
+.field input::placeholder{
+    color: #9c9c9c;
+}
+
+/* Custom dropdown arrow styling */
+.field select{
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--pale-green) 50%),
+        linear-gradient(135deg, var(--pale-green) 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) calc(50% - 3px),
+        calc(100% - 16px) calc(50% - 3px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Focus effect for inputs */
+.field input:focus,
+.field select:focus{
+    outline: none;
+    border-color: var(--deep-green);
+    box-shadow: 0 0 0 3px rgba(153, 204, 50, 0.22);
+}
+
+/* Invalid field styling */
+.field.invalid input,
+.field.invalid select{
+    border-color: #ff0000; /* Red border */
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.08);
+}
+
+/* Valid field styling */
+.field.valid input,
+.field.valid select{
+    border-color: #00a651; /* Green border */
+    box-shadow: 0 0 0 2px rgba(0, 166, 81, 0.12);
+}
+
+/* Error message text */
+.error{
+    color: #ff0000;
+    font-size: 0.8rem;
+    display: none; /* Hidden by default */
+    text-align: right;
+}
+
+/* Show error when field is invalid */
+.field.invalid .error{
+    display: block;
+}
+
+/* Radio group container */
+.radio-group{
+    margin: 0;
+}
+
+/* Radio button row */
+.radio-row{
+    border: 2px solid var(--pale-green);
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    min-height: 46px;
+}
+
+/* Radio button styling */
+.radio-row input{
+    margin-right: 8px;
+    accent-color: var(--deep-green); /* Custom radio color */
+}
+
+/* Form button container */
+.form-actions{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end; /* Align button to right */
+}
+
+/* Submit button styling */
+.cta{
+    background: var(--pale-green);
+    color: var(--white);
+    padding: 10px 28px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(56, 87, 35, 0.25);
+}
+
+/* Responsive layout for tablets */
+@media (max-width: 980px){
+    .page{
+        grid-template-columns: 1fr; /* Stack panels vertically */
+    }
+
+    .side-panel{
+        padding: 40px 20px;
+    }
+
+    .form-panel{
+        padding: 30px 6% 60px;
+    }
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 720px){
+    .grid.two-col{
+        grid-template-columns: 1fr; /* One column layout */
+    }
+
+    .radio-row{
+        flex-direction: column; /* Stack radio buttons */
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

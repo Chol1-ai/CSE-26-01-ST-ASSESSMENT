@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&display=swap");
+
+:root {
+  --pale-green: #99cc32;
+  --deep-green: #385723;
+  --white: #ffffff;
+  --border: #c8d8a8;
+  --error: #cc2222;
+  --error-bg: #fff3f3;
+  --success: #2a7a2a;
+  --text-dark: #1a2e0f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial Narrow","Agency FB", sans-serif;
+  background: var(--pale-green);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* LANDING PAGE */
+
+#landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--pale-green);
+  animation: fadeIn 0.7s ease;
+}
+
+.landing-logo-wrap {
+  background: var(--white);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 40px rgba(56, 87, 35, 0.18);
+  margin-bottom: 20px;
+}
+#camps{
+    color: #2a7a2a;
+    cursor: pointer;
+}
+.landing-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.landing-title {
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  text-shadow: 0 2px 8px rgba(56, 87, 35, 0.18);
+}
+
+.btn-register-landing {
+  font-size: 1.15rem;
+  color: var(--pale-green);
+  background: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 16px 90px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-weight: 500;
+  box-shadow: 0 6px 24px rgba(56, 87, 35, 0.18);
+  transition: all 0.22s;
+  text-transform: uppercase;
+}
+
+.btn-register-landing:hover {
+  background: var(--deep-green);
+  color: var(--white);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/*  REGISTRATION PAGE */
+
+#registration-page {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--pale-green);
+  animation: fadeIn 0.55s ease;
+}
+
+.reg-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* the LEFT PANEL */
+
+.reg-left {
+  width: 300px;
+  min-width: 260px;
+  background: var(--pale-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.reg-logo-wrap {
+  background: var(--white);
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 30px rgba(56, 87, 35, 0.16);
+  margin-bottom: 18px;
+}
+
+.reg-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.reg-title-left {
+  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-shadow: 0 2px 8px rgba(56, 87, 35, 0.14);
+}
+
+
+/* RIGHT PANEL */
+
+.reg-right {
+  flex: 1;
+  background: var(--white);
+  padding: 38px 50px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.form-heading {
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  color: var(--deep-green);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+
+/*  SUCCESS ALERT  */
+
+.success-alert {
+  display: none;
+  background: var(--success);
+  color: var(--white);
+  border-radius: 3px;
+  padding: 13px 20px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideDown 0.3s ease;
+}
+
+.success-alert.show {
+  display: flex;
+}
+
+.success-alert-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+
+/* FORM GRID */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.field-label .required {
+  color: var(--error);
+}
+
+
+/*  INPUTS */
+
+.field-input {
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 11px 14px;
+  font-size: 1rem;
+  background: var(--white);
+  text-align: center;
+  outline: none;
+  width: 100%;
+}
+
+.field-input:focus {
+  border-color: var(--pale-green);
+}
+
+.field-input.error {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+.field-input.valid {
+  border-color: var(--pale-green);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: var(--error);
+  margin-top: 3px;
+  min-height: 16px;
+}
+
+
+/*  SELECT */
+
+.field-select-wrap {
+  position: relative;
+}
+
+.field-select {
+  appearance: none;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 11px 40px 11px 14px;
+  font-size: 1rem;
+  background: var(--white);
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--pale-green);
+}
+
+
+/* GENDER RADIO */
+
+.gender-row {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pale-green);
+  display: none;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom .radio-dot {
+  display: block;
+}
+
+
+/* SUBMIT BUTTON */
+
+.btn-submit {
+  grid-column: 2;
+  justify-self: end;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--deep-green);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 16px 60px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background: #4a7a2a;
+}
+
+
+/*  ANIMATIONS  */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*  RESPONSIVENESS */
+
+@media (max-width: 900px) {
+
+  .reg-layout {
+    flex-direction: column;
+  }
+
+  .reg-left {
+    width: 100%;
+    min-height: 200px;
+    padding: 30px 20px;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .reg-right {
+    padding: 24px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-submit {
+    grid-column: 1;
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,15 @@
+﻿{
+  "name": "fca-refugee-backend",
+  "version": "1.0.0",
+  "description": "Backend for FCA Refugee Support Program",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.14.1"
+  }
+}

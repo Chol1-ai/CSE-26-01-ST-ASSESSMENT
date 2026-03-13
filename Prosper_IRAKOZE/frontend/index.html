@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCA Refugee Support Program</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- LANDING PAGE -->
+    <div class="landing-page" id="landingPage">
+        <div class="logo-container">
+            <img src="assets/images/fca-logo.jpg" alt="FCA Logo" class="logo">
+        </div>
+        <h1 class="main-title">Refugee Support Program</h1>
+        <button class="register-btn" onclick="showForm()">Register</button>
+    </div>
+
+    <!-- REGISTRATION FORM -->
+    <div class="form-page" id="registrationForm" style="display: none;">
+        <div class="form-container">
+            <!-- Left Sidebar - 35% -->
+            <div class="form-sidebar">
+                <img src="assets/images/fca-logo.jpg" alt="FCA Logo" class="sidebar-logo-img">
+                <div class="sidebar-text">
+                    <h2>FCA</h2>
+                    <p>Refugee Support Program</p>
+                </div>
+            </div>
+            
+            <!-- Right Side - Form - 65% -->
+            <div class="form-content">
+                <h2 class="form-title">BENEFICIARY REGISTRATION FORM</h2>
+                
+                <!-- Success Alert -->
+                <div class="success-alert" id="successAlert" style="display: none;">
+                    <div class="alert-content">
+                        <span class="close-alert" onclick="closeAlert()">&times;</span>
+                        <p>✅ Registration Successful!</p>
+                    </div>
+                </div>
+
+                <form id="beneficiaryForm" onsubmit="submitForm(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name </label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter your First name">
+                            <small class="error-message" id="firstNameError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name </label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter your Last name">
+                            <small class="error-message" id="lastNameError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of birth </label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth">
+                            <small class="error-message" id="dateOfBirthError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="placeOfBirth">Place of Birth </label>
+                            <input type="text" id="placeOfBirth" name="placeOfBirth" placeholder="Enter your place of residence">
+                            <small class="error-message" id="placeOfBirthError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Male"> Male
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Female" checked> Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nationality">Nationality </label>
+                            <select id="nationality" name="nationality">
+                                <option value="">-- Select Nationality --</option>
+                                <option value="Ugandan">Ugandan</option>
+                                <option value="Kenyan">Kenyan</option>
+                                <option value="Tanzanian">Tanzanian</option>
+                                <option value="Burundian">Burundian</option>
+                                <option value="Rwandese">Rwandese</option>
+                                <option value="Congolese">Congolese</option>
+                                <option value="South Sudanese">South Sudanese</option>
+                            </select>
+                            <small class="error-message" id="nationalityError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="maritalStatus">Marital status </label>
+                            <select id="maritalStatus" name="maritalStatus">
+                                <option value="">-- Select Marital status --</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                            </select>
+                            <small class="error-message" id="maritalStatusError"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settlementCamp">Settlement camp </label>
+                            <select id="settlementCamp" name="settlementCamp">
+                                <option value="">-- Select settlement camp --</option>
+                                <option value="Gulu settlement camp">Gulu settlement camp</option>
+                                <option value="Arua settlement camp">Arua settlement camp</option>
+                                <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                                <option value="Kasese settlement camp">Kasese settlement camp</option>
+                                <option value="Busia settlement camp">Busia settlement camp</option>
+                                <option value="Mbale settlement camp">Mbale settlement camp</option>
+                                <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+                                <option value="Kyangwali settlement camp">Kyangwali settlement camp</option>
+                                <option value="Kyaka I settlement camp">Kyaka I settlement camp</option>
+                                <option value="Kyaka II settlement camp">Kyaka II settlement camp</option>
+                                <option value="Rwamwanja settlement camp">Rwamwanja settlement camp</option>
+                            </select>
+                            <small class="error-message" id="settlementCampError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateOfJoining">Date of joining </label>
+                            <input type="date" id="dateOfJoining" name="dateOfJoining">
+                            <small class="error-message" id="dateOfJoiningError"></small>
+                        </div>
+                    </div>
+
+                    <!-- Button aligned right, same size as landing page -->
+                    <div class="button-container">
+                        <button type="submit" class="submit-btn">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+
+:root {
+    --pale-green: #99CC32;
+    --deep-green: #385723;
+    --font-header: 'Agency FB', sans-serif;
+    --font-body: 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--deep-green);
+    background-color: #f9f9f9;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-header);
+    color: var(--deep-green);
+    text-transform: uppercase;
+}
+
+/* تنسيق الشعار الدائري مع الألوان الجديدة */
+.logo-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: white;
+    padding: 15px;
+    object-fit: contain;
+    border: 4px solid var(--pale-green); /* إطار بلون أخضر فاتح */
+    box-shadow: 0 4px 15px rgba(56, 87, 35, 0.2); /* ظل بلون أخضر عميق */
+}
+
+/* أزرار التسجيل */
+.btn-submit {
+    background-color: var(--pale-green);
+    color: white;
+    font-family: var(--font-header);
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: var(--deep-green);
+}
+body{
+margin:0;
+font-family:"Arial Narrow";
+}
+
+.landing{
+background:#99CC32;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.landing-container{
+text-align:center;
+color:white;
+}
+
+.logo{
+width:180px;
+margin-bottom:20px;
+}
+
+.register-btn{
+padding:15px 40px;
+font-size:20px;
+background:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.container{
+display:flex;
+height:100vh;
+}
+
+.left-panel{
+width:40%;
+background:#99CC32;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.right-panel{
+width:60%;
+background:#f4f4f4;
+padding:40px;
+}
+
+.form-title{
+font-family:"Agency FB";
+color:#385723;
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+}
+
+.required{
+color:red;
+}
+
+input,select{
+padding:10px;
+border:2px solid #99CC32;
+}
+
+.input-error{
+border:2px solid red !important;
+}
+
+.error-message{
+color:red;
+font-size:12px;
+margin-top:5px;
+}
+
+.global-error{
+background:#ffe5e5;
+color:#b30000;
+padding:12px;
+display:none;
+margin-bottom:20px;
+}
+
+.success{
+background:#dff0d8;
+color:#3c763d;
+padding:12px;
+display:none;
+margin-bottom:20px;
+}
+
+.gender-options{
+display:flex;
+gap:40px;
+margin-top:10px;
+}
+
+.submit-btn{
+margin-top:30px;
+padding:15px;
+background:#99CC32;
+color:white;
+border:none;
+font-size:20px;
+border-radius:6px;
+}
+
+
+

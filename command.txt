@@ -1,0 +1,8 @@
+npm install
+# Install backend dependencies (express, cors).
+
+npm install mongoose
+# Add MongoDB ODM to migrate backend to MongoDB.
+
+npm install dotenv
+# Load environment variables from .env.

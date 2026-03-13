@@ -1,0 +1,308 @@
+/* ===== STYLE GUIDE ===== */
+/* Fonts: Agency FB, Arial Narrow */
+/* Colors:
+   - Pale Green: #99CC32
+   - Deep Green: #385723
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Narrow', 'Agency FB', sans-serif;
+    background-color: #99CC32;
+    color: #385723;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== LANDING PAGE ===== */
+.landing-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #99CC32;
+}
+
+.landing-content {
+    text-align: center;
+    color: #ffffff;
+}
+
+.landing-logo {
+    width: 180px;
+    margin: 0 auto 20px;
+}
+
+.landing-title {
+    font-family: 'Agency FB', 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    color: #ffffff;
+}
+
+.landing-register-btn {
+    display: inline-block;
+    padding: 10px 70px;
+    background-color: #ffffff;
+    color: #99CC32;
+    text-decoration: none;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.landing-register-btn:hover {
+    filter: brightness(0.98);
+}
+
+/* ===== REGISTRATION PAGE ===== */
+.reg-container {
+    min-height: 100vh;
+    display: flex;
+    background-color: #99CC32;
+}
+
+.reg-left {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #99CC32;
+    color: #ffffff;
+    padding: 30px 20px;
+}
+
+.reg-logo {
+    width: 250px;
+    margin-bottom: 28px;
+}
+
+.reg-subtitle {
+    font-family: 'Agency FB', 'Arial Narrow', sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.reg-right {
+    width: 62%;
+    background-color: #ffffff;
+    padding: 32px 60px 38px 45px;
+}
+
+.reg-form-title {
+    font-family: 'Agency FB', 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    color: #385723;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-bar {
+    display: none;
+    background-color: #00a651;
+    color: #ffffff;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.success-text {
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 14px;
+}
+
+.success-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.beneficiary-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-field {
+    flex: 1;
+}
+
+.full-width {
+    flex: 0 0 100%;
+}
+
+.form-field label {
+    display: block;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #385723;
+    margin-bottom: 6px;
+}
+
+.required {
+    color: #ff0000;
+    margin-left: 4px;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    height: 34px;
+    padding: 6px 10px;
+    border: 1px solid #99CC32;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+.form-field input::placeholder {
+    color: #999999;
+}
+
+
+
+.form-field input:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: #385723;
+}
+
+.form-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 34px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><polygon points='0,0 12,0 6,8' fill='%2399CC32'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+}
+
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    border: 1px solid #99CC32;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 2px;
+    padding-top: 10px;
+}
+
+.gender-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 14px;
+    color: #385723;
+}
+
+.gender-label input[type="radio"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #99CC32;
+}
+
+.field-error {
+    color: #ff0000;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 12px;
+    margin-top: 3px;
+    text-align: right;
+    min-height: 14px;
+}
+
+.form-field input.invalid,
+.form-field select.invalid,
+.gender-options.invalid {
+    border-color: #ff0000;
+}
+
+.form-field input.valid,
+.form-field select.valid,
+.gender-options.valid {
+    border-color: #00a651;
+}
+
+.beneficiary-form .form-row:last-child {
+    justify-content: flex-end;
+    margin-top: 6px;
+}
+
+.beneficiary-form .form-row:last-child .form-field {
+    flex: 0 0 auto;
+}
+
+.reg-submit-btn {
+    padding: 8px 60px;
+    background-color: #99CC32;
+    color: #ffffff;
+    border: none;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.reg-submit-btn:hover {
+    filter: brightness(0.98);
+}
+
+@media (max-width: 900px) {
+    .reg-container {
+        flex-direction: column;
+    }
+
+    .reg-left,
+    .reg-right {
+        width: 100%;
+    }
+
+    .reg-form-title {
+        text-align: left;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .beneficiary-form .form-row:last-child {
+        justify-content: flex-start;
+    }
+}

@@ -14,7 +14,12 @@ const UserSchema = new mongoose.Schema({
     dateOfBirth: {
         type: Date,
         required: [true, 'Date of birth is required'],
-        
+        validate: {
+            validator: function(date) {
+                return date < new Date();
+            },
+            message: 'Date of birth cannot be in the future.'
+        }
     },
     placeOfBirth: {
         type: String,
@@ -45,7 +50,17 @@ const UserSchema = new mongoose.Schema({
     dateOfJoining: {
         type: Date,
         required: [true, 'Date of joining is required'],
-        
+        validate: [{
+            validator: function(date) {
+                return date <= new Date();
+            },
+            message: 'Date of joining cannot be in the future.'
+        }, {
+            validator: function(date) {
+                return date > this.dateOfBirth;
+            },
+            message: 'Date of joining must be after the date of birth.'
+        }]
     }
 }, {
     timestamps: true

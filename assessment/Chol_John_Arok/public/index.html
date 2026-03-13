@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FCA - Refugee Support Program</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* styles for the Landing Page */
+      body.landing-page {
+        background-color: #99cc32;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        text-align: center;
+      }
+
+      .landing-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .landing-logo-circle {
+        background: white;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .landing-logo-circle img {
+        width: 70%;
+      }
+
+      .landing-title {
+        font-family: "Agency FB", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 30px;
+      }
+
+      .register-link-btn {
+        background-color: white;
+        color: #99cc32;
+        padding: 15px 80px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+      }
+
+      .register-link-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="landing-page">
+    <div class="landing-container">
+      <div class="landing-logo-circle">
+        <!-- image -->
+        <img src="images/fca-logo.jpg" alt="FCA Logo" />
+      </div>
+      <h1 class="landing-title">Refugee Support Program</h1>
+      <a href="registration.html" class="register-link-btn">Register</a>
+    </div>
+  </body>
+</html>

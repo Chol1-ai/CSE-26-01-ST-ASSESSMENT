@@ -1,0 +1,133 @@
+:root {
+  --pale-green: #99cc32;
+  --deep-green: #385723;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Agency FB", "Arial Narrow", sans-serif;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0.4;
+  background-color: var(--pale-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.logo-circle {
+  background: white;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo-circle img {
+  width: 70%;
+}
+
+/* Form Area */
+.main-content {
+  flex: 0.6;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.form-title {
+  text-align: center;
+  color: var(--deep-green);
+  font-size: 2.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: bold;
+  color: var(--deep-green);
+}
+
+.input-group label span {
+  color: red;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1.5px solid var(--deep-green);
+  outline: none;
+}
+
+.radio-group {
+  display: flex;
+  gap: 40px;
+  padding: 10px 0;
+}
+
+.btn-container {
+  text-align: right;
+}
+
+#registerBtn {
+  background-color: var(--pale-green);
+  color: white;
+  padding: 12px 60px;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Validation Styles */
+.error-msg {
+  color: red;
+  font-size: 0.8rem;
+  display: none;
+  margin-top: 2px;
+}
+
+.invalid input,
+.invalid select {
+  border-color: red !important;
+}
+
+/* Success Alert */
+.alert {
+  background-color: #008a3d;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}

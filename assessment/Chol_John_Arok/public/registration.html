@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beneficiary Registration - FCA</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo-circle">
+          <img src="images/fca-logo.jpg" alt="FCA Logo" />
+        </div>
+        <h1>Refugee Support Program</h1>
+      </div>
+
+      <!-- Main Form Area -->
+      <div class="main-content">
+        <div id="success-alert" class="alert hidden">
+          <span>Beneficiary registered successfully</span>
+          <button id="close-alert">&times;</button>
+        </div>
+
+        <h2 class="form-title">BENEFICIARY REGISTRATION FORM</h2>
+
+        <form id="registrationForm" novalidate>
+          <div class="form-grid">
+            <div class="input-group">
+              <label>First Name <span>*</span></label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Enter your First name"
+              />
+              <small class="error-msg">This field is required</small>
+            </div>
+            <div class="input-group">
+              <label>Last name <span>*</span></label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Enter your Last name"
+              />
+              <small class="error-msg">This field is required</small>
+            </div>
+            <div class="input-group">
+              <label>Date of birth <span>*</span></label>
+              <input type="date" id="dob" />
+              <small class="error-msg">Invalid field</small>
+            </div>
+            <div class="input-group">
+              <label>Place of Birth <span>*</span></label>
+              <input
+                type="text"
+                id="pob"
+                placeholder="Enter your place of residence"
+              />
+              <small class="error-msg">This field is required</small>
+            </div>
+          </div>
+
+          <div class="input-group full-width">
+            <label>Gender</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" name="gender" value="male" /> Male</label
+              >
+              <label
+                ><input type="radio" name="gender" value="female" checked />
+                Female</label
+              >
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Nationality <span>*</span></label>
+              <select id="nationality">
+                <option value="">-- Select Nationality --</option>
+                <option>Ugandan</option>
+                <option>South Sudanese</option>
+                <option>Tanzanian</option>
+                <option>Burundian</option>
+                <option>Rwandese</option>
+                <option>Somali</option>
+                <option>Kenyan</option>
+              </select>
+              <small class="error-msg">This field is required</small>
+            </div>
+            <div class="input-group">
+              <label>Marital status <span>*</span></label>
+              <select id="maritalStatus">
+                <option value="">-- Select Marital status --</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+                <option>Separated</option>
+              </select>
+              <small class="error-msg">This field is required</small>
+            </div>
+            <div class="input-group">
+              <label>Settlement camp <span>*</span></label>
+              <select id="settlementCamp">
+                <option value="">-- Select settlement camp --</option>
+                <option>Kiryandongo settlement camp</option>
+                <option>Rhino settlement camp</option>
+                <option>Bidibidi settlement camp</option>
+                <option>Kasese settlement camp</option>
+                <option>Nyumanzi settlement camp</option>
+                <option>Pakele settlement camp</option>
+              
+              </select>
+              <small class="error-msg">This field is required</small>
+            </div>
+            <div class="input-group">
+              <label>Date of joining Settlement camp <span>*</span></label>
+              <input type="date" id="doj" />
+              <small class="error-msg">Invalid field</small>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <button type="submit" id="registerBtn">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

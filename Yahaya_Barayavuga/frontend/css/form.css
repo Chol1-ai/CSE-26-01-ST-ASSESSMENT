@@ -1,0 +1,246 @@
+:root {
+    --pale-green: #99CC32;
+    --deep-green: #385723;
+    --white: #ffffff;
+    --error-red: #ff0000;
+    --success-green: #00b050;
+    --font-main: 'Agdasima', 'Archivo Narrow';
+}
+
+/* We are removing all that rubbish spacing the browser likes to add */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* The body should just sit nicely, no funny business */
+body {
+    font-family: 'Agdasima', 'Archivo Narrow';
+    background-color: var(--white);
+}
+
+/* The whole page splits into two sides like a proper layout */
+.split-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* This green side stays put, it is not moving anywhere */
+.brand-side {
+    width: 50%;
+    background-color: var(--pale-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+}
+
+/* The logo sits inside a round white container, very smart */
+.brand-side .logo-container {
+    width: 180px;
+    height: 180px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Make sure the logo fills its container well well */
+.brand-side .logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* The big name text on the branding side */
+.brand-side .title {
+    color: var(--white);
+    font-size: 36px;
+    font-family: 'Agdasima';
+    font-weight: bold;
+    text-align: center;
+}
+
+/* The form side shifts over to give way to the fixed panel */
+.form-side {
+    width: 50%;
+    margin-left: 50%;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* This heading announces the form with authority */
+.form-header {
+    color: var(--deep-green);
+    font-family: 'Agdasima';
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Two fields side by side, very organised */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Each field and its label stay together as one family */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This one takes up the whole row, it needs plenty space */
+.full-width {
+    grid-column: span 2;
+}
+
+/* The label tells you what to put inside */
+label {
+    color: var(--deep-green);
+    font-family: 'Agdasima';
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* This small red star means the field cannot be left empty */
+.asterisk {
+    color: var(--error-red);
+}
+
+/* The input box where you type your information */
+.form-control {
+    padding: 10px;
+    border: 1px solid var(--pale-green);
+    border-radius: 2px;
+    font-family: 'Archivo Narrow';
+    font-size: 16px;
+    color: #333;
+    outline: none;
+}
+
+/* The radio options are arranged in a line like they are queuing */
+.radio-group {
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+    border: 1px solid var(--pale-green);
+    align-items: center;
+}
+
+/* Each radio button with its own small label */
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 16px;
+    color: var(--deep-green);
+}
+
+/* The submit button, you press it and things happen */
+.submit-btn {
+    background-color: var(--pale-green);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    font-size: 22px;
+    font-family: 'Archivo Narrow';
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* This error message is hiding until something goes wrong */
+.error-text {
+    color: var(--error-red);
+    font-size: 13px;
+    font-family: 'Archivo Narrow';
+    text-align: right;
+    margin-top: 4px;
+    display: none;
+}
+
+/* The border turns red when someone leaves the field empty */
+.form-group.is-empty .form-control {
+    border-color: var(--error-red);
+}
+
+/* Now the empty field message shows itself */
+.form-group.is-empty .error-empty {
+    display: block;
+}
+
+/* Border goes red when the value is not correct at all */
+.form-group.is-invalid .form-control {
+    border-color: var(--error-red);
+}
+
+/* The invalid message comes out to tell them what went wrong */
+.form-group.is-invalid .error-invalid {
+    display: block;
+}
+
+/* Green success banner that appears when things go well */
+.success-alert {
+    background-color: var(--success-green);
+    color: var(--white);
+    padding: 12px 20px;
+    font-family: 'Archivo Narrow';
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: none;
+}
+
+/* This X button will close the success message when clicked */
+.close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* On small screens we remove the green side and stack everything */
+@media screen and (max-width: 768px) {
+    .brand-side {
+        display: none;
+    }
+
+    .form-side {
+        width: 100%;
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .form-header {
+        font-size: 32px;
+    }
+}

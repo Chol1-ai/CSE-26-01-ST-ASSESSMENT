@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCA — Refugee Support Program</title>
+  
+  <style>
+    :root {
+      --green: #8DC63F;
+      --green-dark: #6fa32e;
+      --green-light: #a5d653;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-muted: #999;
+      --border: #c8e6a0;
+      --error: #e53935;
+      --success: #43a047;
+      --radius: 4px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--green);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ===== LOGO CIRCLE ===== */
+    .logo-circle {
+      width: 160px;
+      height: 160px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* ===== LANDING PAGE ===== */
+    #landing-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 20px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .program-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 3px;
+    }
+
+    .landing-btn {
+      margin-top: 14px;
+      background: var(--white);
+      color: var(--green);
+      border: none;
+      padding: 16px 80px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .landing-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* ===== FORM PAGE ===== */
+    #form-page {
+      display: none;
+      min-height: 100vh;
+      flex-direction: row;
+    }
+
+    .form-left {
+      width: 44%;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .form-left .logo-circle {
+      width: 180px;
+      height: 180px;
+    }
+
+    .form-left .program-title {
+      font-size: 24px;
+      letter-spacing: 3px;
+    }
+
+    .form-right {
+      flex: 1;
+      background: var(--white);
+      padding: 32px 40px 28px;
+      overflow-y: auto;
+    }
+
+    .form-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var( --text-dark);
+      letter-spacing: 4px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    /* Success Alert */
+    .success-alert {
+      display: none;
+      background: var(--success);
+      color: white;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideDown 0.3s ease;
+    }
+
+    .success-alert.show {
+      display: flex;
+    }
+
+    .success-alert .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+
+    /* Form grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+
+    label .required {
+      color: var(--error);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      color: var(--text-dark);
+      background: white;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="date"]::placeholder {
+      color: var(--text-muted);
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      border-color: var(--green);
+    }
+
+    input.error, select.error {
+      border-color: var(--error);
+    }
+
+    input.valid, select.valid {
+      border-color: var(--green);
+    }
+
+    .error-msg {
+      font-size: 11px;
+      color: var(--error);
+      min-height: 14px;
+      font-weight: 600;
+    }
+
+    /* Gender radio */
+    .gender-box {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      display: flex;
+      gap: 0;
+      align-items: center;
+    }
+
+    .radio-option {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .radio-option input[type="radio"] {
+      display: none;
+    }
+
+    .radio-custom {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--green);
+      position: relative;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .radio-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .radio-option input[type="radio"]:checked + .radio-custom::after {
+      opacity: 1;
+    }
+
+    /* Custom select arrow */
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238DC63F' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    select option[value=""] {
+      color: var(--text-muted);
+    }
+
+    /* Submit button */
+    .submit-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .submit-btn:hover {
+      background: var(--green-dark);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.99);
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LANDING PAGE -->
+  <div id="landing-page">
+    <div class="logo-circle">
+      <img src="image/fca-logo.jpg" alt="FCA Logo" />
+    </div>
+    <div class="program-title">Refugee Support Program</div>
+    <button class="landing-btn" onclick="showForm()">Register</button>
+  </div>
+
+  <!-- FORM PAGE -->
+  <div id="form-page">
+    <div class="form-left">
+      <div class="logo-circle">
+        <img src="image/fca-logo.jpg" alt="FCA Logo" />
+      </div>
+      <div class="program-title">Refugee Support Program</div>
+    </div>
+
+    <div class="form-right">
+      <h1 class="form-title">Beneficiary Registration Form</h1>
+
+      <div class="success-alert" id="successAlert">
+        <span>Beneficiary registered successfully</span>
+        <button class="close-btn" onclick="closeAlert()">&#x2715;</button>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field-group">
+          <label>First Name <span class="required">*</span></label>
+          <input type="text" id="firstName" placeholder="Enter your First name" oninput="validateField('firstName')" />
+          <span class="error-msg" id="firstNameError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Last name <span class="required">*</span></label>
+          <input type="text" id="lastName" placeholder="Enter your Last name" oninput="validateField('lastName')" />
+          <span class="error-msg" id="lastNameError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Date of birth <span class="required">*</span></label>
+          <input type="date" id="dateOfBirth" oninput="validateField('dateOfBirth')" onchange="validateField('dateOfBirth')" />
+          <span class="error-msg" id="dateOfBirthError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Place of Birth <span class="required">*</span></label>
+          <input type="text" id="placeOfBirth" placeholder="Enter your place of residence" oninput="validateField('placeOfBirth')" />
+          <span class="error-msg" id="placeOfBirthError"></span>
+        </div>
+
+        <div class="field-group full-width">
+          <label>Gender</label>
+          <div class="gender-box">
+            <label class="radio-option">
+              <input type="radio" name="gender" value="Male" id="genderMale" />
+              <span class="radio-custom"></span>
+              Male
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="gender" value="Female" id="genderFemale" checked />
+              <span class="radio-custom"></span>
+              Female
+            </label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Nationality <span class="required">*</span></label>
+          <select id="nationality" onchange="validateField('nationality')">
+            <option value="">-- Select Nationality --</option>
+            <option value="Ugandan">Ugandan</option>
+            <option value="Kenyan">Kenyan</option>
+            <option value="Tanzanian">Tanzanian</option>
+            <option value="Burundian">Burundian</option>
+            <option value="Rwandese">Rwandese</option>
+            <option value="Somali">Somali</option>
+            <option value="South Sudanese">South Sudanese</option>
+          </select>
+          <span class="error-msg" id="nationalityError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Marital status <span class="required">*</span></label>
+          <select id="maritalStatus" onchange="validateField('maritalStatus')">
+            <option value="">-- Select Marital status --</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+            <option value="Separated">Separated</option>
+          </select>
+          <span class="error-msg" id="maritalStatusError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Settlement camp <span class="required">*</span></label>
+          <select id="settlementCamp" onchange="validateField('settlementCamp')">
+            <option value="">-- Select settlement camp --</option>
+            <option value="Gulu settlement camp">Gulu settlement camp</option>
+            <option value="Arua settlement camp">Arua settlement camp</option>
+            <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+            <option value="Kasese settlement camp">Kasese settlement camp</option>
+            <option value="Busia settlement camp">Busia settlement camp</option>
+            <option value="Mbale settlement camp">Mbale settlement camp</option>
+            <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+          </select>
+          <span class="error-msg" id="settlementCampError"></span>
+        </div>
+
+        <div class="field-group">
+          <label>Date of joining Settlement camp <span class="required">*</span></label>
+          <input type="date" id="dateOfJoiningSettlementCamp" oninput="validateField('dateOfJoiningSettlementCamp')" onchange="validateField('dateOfJoiningSettlementCamp')" />
+          <span class="error-msg" id="dateOfJoiningSettlementCampError"></span>
+        </div>
+
+      </div>
+
+      <button class="submit-btn" onclick="submitForm()">Register</button>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:5000/api/beneficiaries';
+
+    function showForm() {
+      document.getElementById('landing-page').style.display = 'none';
+      const fp = document.getElementById('form-page');
+      fp.style.display = 'flex';
+      fp.style.animation = 'fadeIn 0.4s ease';
+    }
+
+    const validators = {
+      firstName: () => {
+        const v = document.getElementById('firstName').value.trim();
+        if (!v) return 'This field is required';
+        if (v.length < 2) return 'Invalid field';
+        return '';
+      },
+      lastName: () => {
+        const v = document.getElementById('lastName').value.trim();
+        if (!v) return 'This field is required';
+        if (v.length < 2) return 'Invalid field';
+        return '';
+      },
+      placeOfBirth: () => {
+        const v = document.getElementById('placeOfBirth').value.trim();
+        if (!v) return 'This field is required';
+        if (v.length < 2) return 'Invalid field';
+        return '';
+      },
+      dateOfBirth: () => {
+        const v = document.getElementById('dateOfBirth').value;
+        if (!v) return 'This field is required';
+        const d = new Date(v);
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        if (d >= now) return 'Invalid field';
+        return '';
+      },
+      nationality: () => {
+        const v = document.getElementById('nationality').value;
+        if (!v) return 'This field is required';
+        return '';
+      },
+      maritalStatus: () => {
+        const v = document.getElementById('maritalStatus').value;
+        if (!v) return 'This field is required';
+        return '';
+      },
+      settlementCamp: () => {
+        const v = document.getElementById('settlementCamp').value;
+        if (!v) return 'This field is required';
+        return '';
+      },
+      dateOfJoiningSettlementCamp: () => {
+        const v = document.getElementById('dateOfJoiningSettlementCamp').value;
+        if (!v) return 'This field is required';
+        const d = new Date(v);
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        if (d <= now) return 'Invalid field';
+        return '';
+      },
+    };
+
+    function validateField(fieldId) {
+      const el = document.getElementById(fieldId);
+      const errEl = document.getElementById(fieldId + 'Error');
+      const msg = validators[fieldId]();
+      errEl.textContent = msg;
+      if (msg) {
+        el.classList.add('error');
+        el.classList.remove('valid');
+      } else {
+        el.classList.remove('error');
+        el.classList.add('valid');
+      }
+      return msg === '';
+    }
+
+    function validateAll() {
+      const fields = Object.keys(validators);
+      let allValid = true;
+      fields.forEach(f => {
+        if (!validateField(f)) allValid = false;
+      });
+      return allValid;
+    }
+
+    function resetForm() {
+      const fields = ['firstName', 'lastName', 'placeOfBirth', 'dateOfBirth',
+                      'nationality', 'maritalStatus', 'settlementCamp', 'dateOfJoiningSettlementCamp'];
+      fields.forEach(f => {
+        const el = document.getElementById(f);
+        el.value = '';
+        el.classList.remove('error', 'valid');
+        document.getElementById(f + 'Error').textContent = '';
+      });
+      document.getElementById('genderFemale').checked = true;
+    }
+
+    function showAlert() {
+      document.getElementById('successAlert').classList.add('show');
+    }
+
+    function closeAlert() {
+      document.getElementById('successAlert').classList.remove('show');
+      resetForm();
+    }
+
+    async function submitForm() {
+      if (!validateAll()) return;
+
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+
+      const payload = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
+        gender,
+        nationality: document.getElementById('nationality').value,
+        maritalStatus: document.getElementById('maritalStatus').value,
+        settlementCamp: document.getElementById('settlementCamp').value,
+        dateOfJoiningSettlementCamp: document.getElementById('dateOfJoiningSettlementCamp').value,
+      };
+
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          resetForm();
+          showAlert();
+        } else {
+          if (data.errors) {
+            Object.keys(data.errors).forEach(key => {
+              const el = document.getElementById(key);
+              const errEl = document.getElementById(key + 'Error');
+              if (el && errEl) {
+                el.classList.add('error');
+                el.classList.remove('valid');
+                errEl.textContent = data.errors[key];
+              }
+            });
+          } else {
+            alert('Registration failed: ' + (data.message || 'Unknown error'));
+          }
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        alert('Could not connect to the server. Please ensure the backend is running.');
+      }
+    }
+  </script>
+</body>
+</html>
+
+

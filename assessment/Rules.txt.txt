@@ -13,7 +13,7 @@ Validation Rules:
 - Date of joining settlement camp must be after date of registration.
 - Nationality, Marital status, and Settlement camp are selectable fields whose options are as below respectively.
   
-  - Nationality
+  - Nationality:
     - Ugandan
     - Kenyan
     - Tanzanian

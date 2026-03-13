@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration Form</title>
+    <link rel="stylesheet" href="css/register.css">
+ 
+</head>
+<body>
+    <div class="layout">
+        <aside class="brand" aria-label="Refugee Support Program">
+            <div class="brand__logo">
+                <div class="brand__circle">
+                    <img class="brand__img" src="logo & colors/fca-logo.jpg" alt="FCA Logo">
+                </div>
+            </div>
+            <div class="brand__title">Refugee Support Program</div>
+        </aside>
+
+        <main class="content" aria-label="Beneficiary registration form">
+            <h1 class="heading1">BENEFICIARY REGISTRATION FORM</h1>
+
+            <form class="form" action="/register" method="post">
+                <div class="grid">
+                    <div class="indentity">
+                        <label class="label" for="firstName">First Name :<span class="req">*</span></label>
+                        <input class="input" id="firstName" name="firstName" type="text" placeholder="Enter your First name" required>
+                    </div>
+
+                    <div class="indentity">
+                        <label class="label" for="lastName">Last name <span class="req">*</span></label>
+                        <input class="input" id="lastName" name="lastName" type="text" placeholder="Enter your Last name" required>
+                    </div>
+
+                    <div class="indentity">
+                        <label class="label" for="dob">Date of birth <span class="req">*</span></label>
+                        <input class="input input--center" id="dob" name="dob" type="date"  placeholder=" dd/ mm / yyyy" required>
+                    </div>
+
+                    <div class="indentity">
+                        <label class="label" for="pob">Place of Birth <span class="req">*</span></label>
+                        <input class="input" id="pob" name="pob" type="text" placeholder="Enter your place of residence" required>
+                    </div>
+
+                    <div class="gender">
+                        <span class="label">Gender</span>
+                        <div class="radioRow" role="radiogroup" aria-label="Gender">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="gender" value="Male">
+                                <span class="radio__text">Male</span>
+                            </label>
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="gender" value="Female" checked>
+                                <span class="radio__text">Female</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="indentity">
+                        <label class="label" for="nationality">Nationality <span class="req">*</span></label>
+                        <div class="select">
+                            <select class="input select__control" id="nationality" name="nationality" required>
+                                <option value="" selected disabled>-- Select Nationality --</option>
+                                <option>Ugandan</option>
+                                <option>Kenyan</option>
+                                <option>Tanzanian</option>
+                                <option>Burundian</option>
+                                <option>rwandese</option>
+                                <option>Somali</option>
+                                <option>South soudanese</option>
+                            </select>
+                            <span class="select__arrow" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="identity">
+                        <label class="label" for="maritalStatus">Marital status <span class="req">*</span></label>
+                        <div class="select">
+                            <select class="input select__control" id="maritalStatus" name="maritalStatus" required>
+                                <option value="" selected disabled>-- Select Marital status --</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Divorced</option>
+                                <option>Widowed</option>
+                                <option>Separeted</option>   
+                            </select>
+                            <span class="select__arrow" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="identity">
+                        <label class="label" for="settlement">Settlement camp <span class="req">*</span></label>
+                        <div class="select">
+                            <select class="input select__control" id="settlement" name="settlement" required>
+                                <option value="" selected disabled>-- Select settlement camp --</option>
+                                <option>Gulu settlement camp</option>
+                                <option>Arua settlement camp</option>
+                                <option>Mbarara settlement camp</option>
+                                <option>Kasese settlement camp</option>
+                                <option>Busia settlement camp</option>
+                                <option>Kigezi settlement camp</option>
+                            </select>
+                            <span class="select__arrow" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="identity">
+                        <label class="label" for="dateJoined">Date of joining Settlement camp <span class="req">*</span></label>
+                        <input class="input input--center" id="dateJoined" name="dateJoined" type="date"  placeholder="Year/ Month / Day" required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="submit" type="submit">Register</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

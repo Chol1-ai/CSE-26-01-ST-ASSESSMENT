@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Agency FB;
+}
+
+.layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.name-section {
+    width: 500px;
+    height: 100vh;
+    background-color: rgb(153, 204, 50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-section {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.logo {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.doc-name {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.form-title {
+    color: rgb(56, 87, 35);
+    text-align: center;
+}
+
+.inputs-1, .inputs-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.inputs-1 label, .inputs-2 select, .inputs-2 label {
+    display: block;
+}
+
+.inputs-1 input, .inputs-2 input {
+    padding: 10px 15px;
+    width: 90%;
+    border: 2px solid;
+}
+
+.gender {
+    display: block;
+}
+
+.gender fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputs-2 select{
+    padding: 10px 15px;
+    width: 99%
+}
+
+.btn-section {
+    display: flex;
+    justify-content: end;
+}
+
+.registerBtn2 {
+    border: none;
+    background-color: rgb(153, 204, 50);
+    color: white;
+    font-size: 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}

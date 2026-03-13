@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beneficiary Registration Form</title>
+    <link rel="stylesheet" href="/register.css" />
+  </head>
+  <body>
+    <main class="form-container">
+      <section class="logo-side">
+        <img src="/images/fca-logo.jpg" alt="FCA Logo" />
+        <h1>Refugee Support Program</h1>
+      </section>
+
+      <section class="registration">
+        <h2>Beneficiary Registration Form</h2>
+
+        <form id="beneficiaryForm" novalidate>
+          <div id="successMessage" class="success-message hidden">
+            <span>Beneficiary registered successfully</span>
+            <button type="button" id="closeSuccess" aria-label="Close success message">&times;</button>
+          </div>
+
+          <div class="form-group">
+            <label for="firstname">First Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder="Enter your First name"
+              autocomplete="given-name"
+            />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              placeholder="Enter your Last name"
+              autocomplete="family-name"
+            />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="dateofbirth">Date of birth <span class="required">*</span></label>
+            <input
+              type="date"
+              id="dateofbirth"
+              name="dateofbirth"
+            />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="placeofbirth">Place of Birth <span class="required">*</span></label>
+            <input
+              type="text"
+              id="placeofbirth"
+              name="placeofbirth"
+              placeholder="Enter your place of residence"
+              autocomplete="address-level2"
+            />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Gender</label>
+            <div class="radio-row">
+              <label class="radio-item" for="male">
+                <input type="radio" name="gender" id="male" value="male" />
+                <span>Male</span>
+              </label>
+
+              <label class="radio-item" for="female">
+                <input type="radio" name="gender" id="female" value="female" checked />
+                <span>Female</span>
+              </label>
+            </div>
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="nationality">Nationality <span class="required">*</span></label>
+            <select id="nationality" name="nationality">
+              <option value="">-- Select Nationality --</option>
+              <option value="Ugandan">Ugandan</option>
+              <option value="Kenyan">Kenyan</option>
+              <option value="Tanzanian">Tanzanian</option>
+              <option value="Burundian">Burundian</option>
+              <option value="Rwandese">Rwandese</option>
+              <option value="Somali">Somali</option>
+              <option value="South Sudanese">South Sudanese</option>
+            </select>
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="maritalStatus">Marital status <span class="required">*</span></label>
+            <select id="maritalStatus" name="maritalStatus">
+              <option value="">-- Select Marital status --</option>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Widowed">Widowed</option>
+              <option value="Separated">Separated</option>
+            </select>
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="settlementCamp">Settlement camp <span class="required">*</span></label>
+            <select id="settlementCamp" name="settlementCamp">
+              <option value="">-- Select settlement camp --</option>
+              <option value="Gulu Settlement Camp">Gulu Settlement Camp</option>
+              <option value="Arua Settlement Camp">Arua Settlement Camp</option>
+              <option value="Mbarara Settlement Camp">Mbarara Settlement Camp</option>
+              <option value="Kasese Settlement Camp">Kasese Settlement Camp</option>
+              <option value="Busia Settlement Camp">Busia Settlement Camp</option>
+              <option value="Mbale Settlement Camp">Mbale Settlement Camp</option>
+              <option value="Kigezi Settlement Camp">Kigezi Settlement Camp</option>
+            </select>
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="dateofjoin">Date of joining settlement camp <span class="required">*</span></label>
+            <input
+              type="date"
+              id="dateofjoin"
+              name="dateofjoin"
+            />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group button-group">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="/register.js"></script>
+  </body>
+</html>

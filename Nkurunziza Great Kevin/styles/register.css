@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: Agency FB;
+    background-color: rgb(153, 204, 50);
+}
+
+.layout {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+
+}
+
+.logo {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.doc-name {
+    color: white;
+    font-size: 31px;
+    margin-top: 7px;
+}
+
+.registerBtn1 {
+    color: rgb(153, 204, 50);
+    font-size: 20px;
+    padding: 10px 25px;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}

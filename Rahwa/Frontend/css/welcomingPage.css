@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Agency FB", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99cc32;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+#insideContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#registerBtn {
+  color: #99cc32;
+  width: 100%;
+  background-color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}

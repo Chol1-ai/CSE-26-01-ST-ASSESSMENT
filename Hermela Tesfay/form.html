@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="formContainer">
+        <div class="leftside">
+            <div class="form-logo">
+                <img src="images/fca-logo.jpg" alt="logo">
+            </div>
+            <div class="companyname">
+                <p>Refugee Support Program</p>
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="formHeading">
+                <h2>BENEFICIARY REGISTRATION FORM</h2>
+            </div>
+            <form action="" id="form-register">
+                <div class="inputContainer">
+                    <div class="form-input">
+                        <label for="">First Name <span>*</span></label><br>
+                        <input type="text" id="firstName" placeholder="Enter your First name">
+                    </div>
+                    <div class="form-input">
+                        <label for="">Last Name <span>*</span></label><br>
+                        <input type="text" id="lastName" placeholder="Enter your Last name">
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <div class="form-input">
+                        <label for="">Date of Birth<span>*</span></label><br>
+                        <input type="date" id="dateofbirth" placeholder="YYYY/MM/DD">
+                    </div>
+                    <div class="form-input">
+                        <label for="">Place of Birth <span>*</span></label><br>
+                        <input type="text" id="placeofbirth" placeholder="Enter your place of residence">
+                    </div>
+                </div>
+
+                 <div class="genderContainer">
+                    <label for="">Gender</label><br>
+                   <div class="gender">
+                    <label for=""><input type="radio" name="gender" Value="Male">Male</label>
+                    <label for=""><input type="radio" name="gender" Value="Female">Female</label>
+                   </div>
+                </div>
+
+                <div class="inputContainer">
+                    <div class="form-input">
+                        <label for="">Nationality <span>*</span></label><br>
+                        <select name="" id="" id="nationality">
+                            <option value="">--Select Nationality--</option>
+                            <option value="Ugandan">Ugandan</option>
+                            <option value="Kenyan">Kenyan</option>
+                            <option value="Tanzanian">Tanzanian</option>
+                            <option value="Burundian">Burundian</option>
+                            <option value="Rwandese">Rwandese</option>
+                            <option value="Somali">Somali</option>
+                            <option value="South Sudanese">South Sudanese</option>
+                        </select>
+                    </div>
+                    <div class="form-input">
+                        <label for="">Marital Status <span>*</span></label><br>
+                        <select name="" id="" id="maritalStatus">
+                            <option value="">--Select Marital Status--</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Separated">Separated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <div class="form-input">
+                        <label for="">Settlement camp<span>*</span></label><br>
+                        <select name="" id="" id="settlementCamp">
+                            <option value="">.--Select settlement camp</option>
+                            <option value="Gulu settlement camp">Gulu settlement camp</option>
+                            <option value="Arua settlement camp">Arua settlement camp</option>
+                            <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                            <option value="Kasese settlement camp">Kasese settlement camp</option>
+                            <option value="Busia settlement camp">Busia settlement camp</option>
+                            <option value="Mbale settlement camp">Mbale settlement camp</option>
+                            <option value="Kigezi settlement camp"> Kigezi settlement camp</option>
+                        </select>
+                    </div>
+                    <div class="form-input">
+                        <label for="">Date of joining settlement camp <span>*</span></label><br>
+                        <input type="date" id="dateofjoiningsettlementcamp" placeholder="YYYY/MM/DD" id="dateOfjoiningSettlement">
+                    </div>
+                </div>
+
+                <div class="registerBtn">
+                    <button>Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

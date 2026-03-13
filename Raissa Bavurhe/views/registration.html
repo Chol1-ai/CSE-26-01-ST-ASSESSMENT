@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration</title>
+    <link rel="stylesheet" href="/form.css">
+    
+    <style>
+        /* Error styling */
+        .input-error {
+            border: 1px solid red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 2px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+        <div class="logo-circle">
+            <img src="/imgs/Fca-logo.png" alt="FCA Logo">
+        </div>
+        <div class="program-title">
+            Refugee Support Program
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel">
+        <h1>BENEFICIARY REGISTRATION FORM</h1>
+
+        <form id="beneficiary-form">
+            <div id="successAlert" class="success-alert">
+                Registration submitted successfully.
+                <button type="button" id="closeAlert">&times;</button>
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input id="firstName" name="firstName" type="text" placeholder="Enter your First name">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input id="lastName" name="lastName" type="text" placeholder="Enter your Last name">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="dob">Date of Birth <span class="required">*</span></label>
+                    <input id="dob" name="dob" type="date">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="birthPlace">Place of Birth <span class="required">*</span></label>
+                    <input id="birthPlace" name="birthPlace" type="text" placeholder="Enter your place of residence">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="gender-row">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female" checked> Female</label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="nationality">Nationality <span class="required">*</span></label>
+                    <select id="nationality" name="nationality">
+                        <option value="">-- Select Nationality --</option>
+                        <option>Ugandan</option>
+                        <option>Kenyan</option>
+                        <option>Tanzanian</option>
+                        <option>Burundian</option>
+                        <option>Rwandese</option>
+                        <option>Somali</option>
+                        <option>South Sudanese</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="maritalStatus">Marital Status <span class="required">*</span></label>
+                    <select id="maritalStatus" name="maritalStatus">
+                        <option value="">-- Select Marital status --</option>
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Divorced</option>
+                        <option>Widowed</option>
+                        <option>Separated</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="camp">Settlement Camp <span class="required">*</span></label>
+                    <select id="camp" name="camp">
+                        <option value="">-- Select settlement camp --</option>
+                        <option>Gulu settlement camp</option>
+                        <option>Arua settlement camp</option>
+                        <option>Mbarara settlement camp</option>
+                        <option>Kasese settlement camp</option>
+                        <option>Busia settlement camp</option>
+                        <option>Mbale settlement camp</option>
+                        <option>Kigezi settlement camp</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="field">
+                    <label for="joinDate">Date of joining Settlement camp <span class="required">*</span></label>
+                    <input id="joinDate" name="joinDate" type="date">
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("beneficiary-form");
+        const successAlert = document.getElementById("successAlert");
+        const closeAlert = document.getElementById("closeAlert");
+
+        const fields = {
+            firstName: document.getElementById("firstName"),
+            lastName: document.getElementById("lastName"),
+            dob: document.getElementById("dob"),
+            birthPlace: document.getElementById("birthPlace"),
+            nationality: document.getElementById("nationality"),
+            maritalStatus: document.getElementById("maritalStatus"),
+            camp: document.getElementById("camp"),
+            joinDate: document.getElementById("joinDate")
+        };
+
+        function clearErrors() {
+            Object.values(fields).forEach(f => {
+                f.classList.remove("input-error");
+                const errorDiv = f.parentElement.querySelector(".error-message");
+                if (errorDiv) {
+                    errorDiv.innerText = "";
+                    errorDiv.style.display = "none";
+                }
+            });
+        }
+
+        function showError(el) {
+            el.classList.add("input-error");
+            const errorDiv = el.parentElement.querySelector(".error-message");
+            if (errorDiv) {
+                errorDiv.innerText = "This field is required";
+                errorDiv.style.display = "block";
+            }
+        }
+
+        function resetForm() {
+            form.reset();
+            clearErrors();
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            let valid = true;
+
+            // Validate all inputs
+            Object.values(fields).forEach(f => {
+                if (!f.value || f.value.trim() === "") {
+                    showError(f);
+                    valid = false;
+                }
+            });
+
+            if (!valid) return;
+
+            // Gender
+            const genderValue = document.querySelector('input[name="gender"]:checked')?.value;
+            const gender = genderValue === "male" ? "Male" : "Female";
+
+            // Prepare payload
+            const regDate = new Date().toISOString().slice(0, 10);
+            const payload = {
+                firstName: fields.firstName.value.trim(),
+                lastName: fields.lastName.value.trim(),
+                placeOfBirth: fields.birthPlace.value.trim(),
+                dateOfBirth: fields.dob.value,
+                dateOfRegistration: regDate,
+                dateJoinedSettlementCamp: fields.joinDate.value,
+                gender,
+                nationality: fields.nationality.value,
+                maritalStatus: fields.maritalStatus.value,
+                settlementCamp: fields.camp.value
+            };
+
+            try {
+                const res = await fetch("/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    alert(err.error || "Registration failed. Please try again.");
+                    return;
+                }
+
+                successAlert.style.display = "block";
+                resetForm();
+            } catch (err) {
+                alert("Network error. Please try again.");
+            }
+        });
+
+        closeAlert.addEventListener("click", () => {
+            successAlert.style.display = "none";
+            resetForm();
+        });
+    </script>
+
+</body>
+
+</html>

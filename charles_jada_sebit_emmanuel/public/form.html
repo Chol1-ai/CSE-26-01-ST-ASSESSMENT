@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration - FCA Refugee Support Program</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/fca-logo.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="assets/fca-logo.jpg" alt="FCA Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>FCA</h1>
+                        <p>Refugee Support Program</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="form.html" class="active">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-split-layout">
+                    <!-- Left Side - Brand Section -->
+                    <div class="form-brand-section">
+                        <div class="form-brand-logo">
+                            <div class="logo-text">FCA</div>
+                        </div>
+                        <h2 class="form-brand-title">Refugee Support Program</h2>
+                        <p class="form-brand-subtitle">
+                            Providing comprehensive support and assistance to refugees 
+                            in their journey towards safety, dignity, and self-reliance.
+                        </p>
+                    </div>
+
+                    <!-- Right Side - Form Section -->
+                    <div class="form-content-section">
+                        <!-- Success Alert -->
+                        <div id="successAlert" class="success-alert">
+                            <span>Registration successful! Your information has been saved.</span>
+                            <button type="button" class="close-btn" onclick="closeSuccessAlert()">&times;</button>
+                        </div>
+
+                        <!-- Form Header -->
+                        <div class="form-header">
+                            <h2>BENEFICIARY REGISTRATION FORM</h2>
+                        </div>
+
+                        <!-- Registration Form -->
+                        <form id="registrationForm" novalidate>
+                            <div class="form-grid">
+                                <!-- First Name -->
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">
+                                        First Name <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        class="form-input" 
+                                        placeholder="Enter your First name"
+                                        required
+                                        minlength="2"
+                                    >
+                                    <div class="error-message" id="firstNameError"></div>
+                                </div>
+
+                                <!-- Last Name -->
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">
+                                        Last name <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        class="form-input" 
+                                        placeholder="Enter your Last name"
+                                        required
+                                        minlength="2"
+                                    >
+                                    <div class="error-message" id="lastNameError"></div>
+                                </div>
+
+                                <!-- Date of Birth -->
+                                <div class="form-group">
+                                    <label for="dateOfBirth" class="form-label">
+                                        Date of birth <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="date" 
+                                        id="dateOfBirth" 
+                                        name="dateOfBirth" 
+                                        class="form-input" 
+                                        required
+                                    >
+                                    <div class="error-message" id="dateOfBirthError"></div>
+                                </div>
+
+                                <!-- Place of Birth -->
+                                <div class="form-group">
+                                    <label for="placeOfBirth" class="form-label">
+                                        Place of Birth <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="placeOfBirth" 
+                                        name="placeOfBirth" 
+                                        class="form-input" 
+                                        placeholder="Enter your place of residence"
+                                        required
+                                        minlength="2"
+                                    >
+                                    <div class="error-message" id="placeOfBirthError"></div>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group full-width">
+                                    <label class="form-label">
+                                        Gender
+                                    </label>
+                                    <div class="radio-group">
+                                        <div class="radio-option">
+                                            <input 
+                                                type="radio" 
+                                                id="genderMale" 
+                                                name="gender" 
+                                                value="male" 
+                                                class="radio-input"
+                                            >
+                                            <label for="genderMale" class="radio-label">Male</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input 
+                                                type="radio" 
+                                                id="genderFemale" 
+                                                name="gender" 
+                                                value="female" 
+                                                class="radio-input" 
+                                                checked
+                                            >
+                                            <label for="genderFemale" class="radio-label">Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="error-message" id="genderError"></div>
+                                </div>
+
+                                <!-- Nationality -->
+                                <div class="form-group">
+                                    <label for="nationality" class="form-label">
+                                        Nationality <span class="required">*</span>
+                                    </label>
+                                    <select id="nationality" name="nationality" class="form-select" required>
+                                        <option value="">-- Select Nationality --</option>
+                                        <option value="Ugandan">Ugandan</option>
+                                        <option value="Kenyan">Kenyan</option>
+                                        <option value="Tanzanian">Tanzanian</option>
+                                        <option value="Burundian">Burundian</option>
+                                        <option value="Rwandese">Rwandese</option>
+                                        <option value="Somali">Somali</option>
+                                        <option value="South Sudanese">South Sudanese</option>
+                                    </select>
+                                    <div class="error-message" id="nationalityError"></div>
+                                </div>
+
+                                <!-- Marital Status -->
+                                <div class="form-group">
+                                    <label for="maritalStatus" class="form-label">
+                                        Marital status <span class="required">*</span>
+                                    </label>
+                                    <select id="maritalStatus" name="maritalStatus" class="form-select" required>
+                                        <option value="">-- Select Marital Status --</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                    </select>
+                                    <div class="error-message" id="maritalStatusError"></div>
+                                </div>
+
+                                <!-- Settlement Camp -->
+                                <div class="form-group">
+                                    <label for="settlementCamp" class="form-label">
+                                        Settlement camp <span class="required">*</span>
+                                    </label>
+                                    <select id="settlementCamp" name="settlementCamp" class="form-select" required>
+                                        <option value="">-- Select settlement camp --</option>
+                                        <option value="Gulu settlement camp">Gulu settlement camp</option>
+                                        <option value="Arua settlement camp">Arua settlement camp</option>
+                                        <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                                        <option value="Kasese settlement camp">Kasese settlement camp</option>
+                                        <option value="Busia settlement camp">Busia settlement camp</option>
+                                        <option value="Mbale settlement camp">Mbale settlement camp</option>
+                                        <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+                                    </select>
+                                    <div class="error-message" id="settlementCampError"></div>
+                                </div>
+
+                                <!-- Date of joining Settlement camp -->
+                                <div class="form-group">
+                                    <label for="dateOfJoining" class="form-label">
+                                        Date of joining Settlement camp <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="date" 
+                                        id="dateOfJoining" 
+                                        name="dateOfJoining" 
+                                        class="form-input" 
+                                        required
+                                    >
+                                    <div class="error-message" id="dateOfJoiningError"></div>
+                                </div>
+
+                                <!-- Date of Registration (Hidden field, auto-filled) -->
+                                <input 
+                                    type="hidden" 
+                                    id="dateOfRegistration" 
+                                    name="dateOfRegistration"
+                                >
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FCA Refugee Support Program. All rights reserved. | Developed by Charles Jada Sebit Emmanuel</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/form-validation.js"></script>
+</body>
+</html>

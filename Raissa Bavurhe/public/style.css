@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #99CC32;
+    font-family: "Agency FB";
+}
+
+/* Circle container for logo */
+
+.logo-circle {
+    width: 200px;
+    height: 200px;
+    background: #e6e6e6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Logo image */
+
+.logo {
+    width: 140px;
+}
+
+/* Program Title */
+
+.program-title {
+    font-family: "Agency FB";
+    font-size: 34px;
+    color: white;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* Register Button */
+
+.register-btn {
+    width: 220px;
+    padding: 15px;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "Arial Narrow";
+    color: #6aa324;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: white;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "fca-refugee-support",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "backend:install": "cd backend && npm install",
+    "backend:start": "cd backend && npm start"
+  },
+  "description": "This project implements a landing page and a beneficiary registration form with a Node.js backend and MongoDB storage.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "mongodb": "^7.1.0"
+  }
+}

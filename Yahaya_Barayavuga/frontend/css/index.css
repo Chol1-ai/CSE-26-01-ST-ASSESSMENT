@@ -1,0 +1,109 @@
+/* Colour and font variables for the whole project */
+:root {
+    --pale-green: #99CC32;
+    --deep-green: #385723;
+    --white: #ffffff;
+    --font-main: 'Agdasima', 'Archivo Narrow';
+}
+
+/* Chasing away all the default spacing the browser brings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* The whole page is green, that is the plan */
+body {
+    background-color: var(--pale-green);
+    font-family: var(--font-main);
+}
+
+/* This wrapper puts everything in the centre of the screen */
+.landing-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* The content stacks on top of each other nicely */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Round white circle that holds the logo */
+.logo-container {
+    width: 160px;
+    height: 160px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+/* Logo fills the circle without stretching itself */
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* The programme name displayed in white and bold */
+.title {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    font-family: var(--font-main);
+}
+
+/* White register button sitting below the title */
+.register-btn {
+    background-color: var(--white);
+    color: var(--deep-green);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 0;
+    width: 100%;
+    max-width: 260px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    font-family: var(--font-main);
+}
+
+/* Button sinks down small when you press it */
+.register-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* On small phones everything shrinks down a bit */
+@media screen and (max-width: 480px) {
+    .logo-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .register-btn {
+        font-size: 18px;
+        padding: 12px 0;
+    }
+}

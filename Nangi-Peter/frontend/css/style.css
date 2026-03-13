@@ -1,0 +1,564 @@
+/* Font declarations */
+@font-face {
+    font-family: 'Agency FB';
+    src: url('https://db.onlinewebfonts.com/t/36f6c4f45a6a3005e58a613212ebccf5.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* CSS Variables */
+:root {
+    --pale-green: #99CC32;
+    --deep-green: #385723;
+    --error-red: #FF0000;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --border-gray: #DDDDDD;
+    --border-focus: #99CC32;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Headings use Agency FB */
+h1, h2, h3, h4, h5, h6,
+.program-title,
+.branding-title,
+.form-title,
+.logo-circle span {
+    font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Landing Page */
+.landing-page {
+    min-height: 100vh;
+    background-color: var(--pale-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.landing-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+/* Logo Circle */
+.logo-circle {
+    width: 180px;
+    height: 180px;
+    background-color: var(--white);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-circle.large {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+}
+
+.brush-stroke {
+    width: 130px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--pale-green) 0%, var(--deep-green) 100%);
+    transform: rotate(-5deg) skewX(-5deg);
+    border-radius: 60% 40% 50% 50% / 40% 50% 50% 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: inset -2px -2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-circle.large .brush-stroke {
+    width: 110px;
+    height: 70px;
+}
+
+.brush-stroke span {
+    color: var(--white);
+    font-size: 2.2rem;
+    font-weight: bold;
+    transform: rotate(5deg) skewX(5deg);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo-circle.large .brush-stroke span {
+    font-size: 1.8rem;
+}
+
+/* Program Title */
+.program-title {
+    color: var(--white);
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    line-height: 1.2;
+}
+
+/* Register Button */
+.register-button {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--pale-green);
+    padding: 1rem 3.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+    letter-spacing: 1px;
+}
+
+.register-button:hover {
+    background-color: transparent;
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Registration Page */
+.registration-page {
+    min-height: 100vh;
+    display: none;
+}
+
+.registration-page.active {
+    display: block;
+}
+
+/* Split Layout */
+.split-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left Panel - Branding (50% Pale Green) */
+.branding-panel {
+    width: 50%;
+    background-color: var(--pale-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.branding-panel::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.branding-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+}
+
+.branding-title {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin: 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    line-height: 1.3;
+}
+
+.branding-decoration {
+    margin-top: 2rem;
+}
+
+.decoration-line {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(255,255,255,0.3);
+    margin: 1rem auto;
+}
+
+.branding-message {
+    color: var(--white);
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Right Panel - Form (50% White) */
+.form-panel {
+    width: 50%;
+    background-color: var(--white);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-title {
+    color: var(--deep-green);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+    border-bottom: 3px solid var(--pale-green);
+    padding-bottom: 0.5rem;
+}
+
+/* Alert Container */
+.alert-container {
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: var(--deep-green);
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideDown 0.3s ease;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+/* Registration Form */
+.registration-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    position: relative;
+}
+
+.form-group.full-width {
+    flex: 0 0 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--deep-green);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-gray);
+    border-radius: 4px;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--white);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--pale-green);
+    box-shadow: 0 0 0 3px rgba(153, 204, 50, 0.1);
+}
+
+/* Error States */
+input.error, select.error {
+    border-color: var(--error-red) !important;
+}
+
+.error-message {
+    display: block;
+    color: var(--error-red);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    min-height: 1.2rem;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-gray);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+    border-color: var(--pale-green);
+    background-color: var(--pale-green);
+    box-shadow: inset 0 0 0 3px var(--white);
+}
+
+.radio-option input[type="radio"]:focus + .radio-custom {
+    box-shadow: 0 0 0 3px rgba(153, 204, 50, 0.3);
+}
+
+/* Submit Button */
+.form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: var(--pale-green);
+    color: var(--deep-green);
+    border: none;
+    padding: 1rem 3rem;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--pale-green);
+    box-shadow: var(--shadow);
+    letter-spacing: 1px;
+    min-width: 200px;
+}
+
+.submit-btn:hover {
+    background-color: var(--deep-green);
+    color: var(--white);
+    border-color: var(--deep-green);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .split-layout {
+        flex-direction: column;
+    }
+    
+    .branding-panel,
+    .form-panel {
+        width: 100%;
+    }
+    
+    .branding-panel {
+        padding: 3rem 2rem;
+    }
+    
+    .form-panel {
+        padding: 2rem;
+    }
+    
+    .program-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .brush-stroke {
+        width: 110px;
+        height: 75px;
+    }
+    
+    .brush-stroke span {
+        font-size: 1.8rem;
+    }
+    
+    .program-title {
+        font-size: 2rem;
+    }
+    
+    .register-button {
+        padding: 0.8rem 2.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .radio-group {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .branding-title {
+        font-size: 1.8rem;
+    }
+}
+/* Add these styles for the logo image */
+.fca-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 15px; /* Creates white space around your logo */
+    background-color: var(--white); /* Ensures white background */
+}
+
+.logo-circle {
+    width: 180px;
+    height: 180px;
+    background-color: var(--white);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.logo-circle.large {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+}
+
+/* Optional: If you want to completely remove the brush stroke styles */
+/* You can comment out or delete these old styles:
+.brush-stroke {
+    ...
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .logo-circle.large {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fca-logo-image {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .logo-circle.large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .fca-logo-image {
+        padding: 10px;
+    }
+}

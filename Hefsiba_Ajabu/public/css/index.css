@@ -1,0 +1,85 @@
+:root {
+  --bg: #9acd32;
+  --accent: #7fb51f;
+  --text: #ffffff;
+  --shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: rgb(153, 204, 50) center/cover no-repeat fixed;
+  font-family: "Arial Narrow", "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--text);
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.sect1 {
+  width: min(520px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.logo__circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.logo__img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+.title {
+  font-family: Agency FB;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 200px;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  margin-top: 12px;
+  width: 90px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  outline: none;
+  user-select: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.99);
+}
+

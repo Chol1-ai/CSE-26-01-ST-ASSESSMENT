@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beneficiary Registration – FCA</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="css/form.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       PAGE LAYOUT
+       Left panel = green with logo
+       Right panel = white with form
+  ═══════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- ── LEFT PANEL ── -->
+    <aside class="left-panel">
+      <div class="logo-circle">
+        <img
+          src="../images/logo & colors/fca-logo.jpg"
+          alt="FCA Logo"
+          class="logo-img"
+        />
+      </div>
+      <p class="panel-tagline">Refugee Support Program</p>
+    </aside>
+
+    <!-- ── RIGHT PANEL ── -->
+    <main class="right-panel">
+
+      <!-- Form title -->
+      <h1 class="form-title">BENEFICIARY REGISTRATION FORM</h1>
+
+      <!-- ── SUCCESS ALERT (hidden by default, shows on success) ── -->
+      <div class="success-alert hidden" id="successAlert">
+        <span>Beneficiary registered successfully</span>
+        <button class="alert-close" id="alertCloseBtn" type="button">&#10005;</button>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           THE REGISTRATION FORM
+      ══════════════════════════════════════ -->
+      <form id="registrationForm" novalidate>
+
+        <!-- ROW 1: First Name | Last Name -->
+        <div class="form-row">
+
+          <div class="field-group">
+            <label for="firstName">
+              First Name <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter your First name"
+            />
+            <span class="error-msg" id="firstNameError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="lastName">
+              Last name <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter your Last name"
+            />
+            <span class="error-msg" id="lastNameError"></span>
+          </div>
+
+        </div>
+
+        <!-- ROW 2: Date of Birth | Place of Birth -->
+        <div class="form-row">
+
+          <div class="field-group">
+            <label for="dateOfBirth">
+              Date of birth <span class="required">*</span>
+            </label>
+            <input
+              type="date"
+              id="dateOfBirth"
+              name="dateOfBirth"
+            />
+            <span class="error-msg" id="dateOfBirthError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="placeOfBirth">
+              Place of Birth <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="placeOfBirth"
+              name="placeOfBirth"
+              placeholder="Enter your place of residence"
+            />
+            <span class="error-msg" id="placeOfBirthError"></span>
+          </div>
+
+        </div>
+
+        <!-- ROW 3: Gender (radio buttons - full width row) -->
+        <div class="form-row">
+
+          <div class="field-group full-width">
+            <label>Gender</label>
+            <!-- Radio buttons side by side, Female selected by default -->
+            <div class="gender-box">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                />
+                Male
+              </label>
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  checked
+                />
+                Female
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ROW 4: Nationality | Marital Status -->
+        <div class="form-row">
+
+          <div class="field-group">
+            <label for="nationality">
+              Nationality <span class="required">*</span>
+            </label>
+            <select id="nationality" name="nationality">
+              <option value="">-- Select Nationality --</option>
+              <option value="Ugandan">Ugandan</option>
+              <option value="Kenyan">Kenyan</option>
+              <option value="Tanzanian">Tanzanian</option>
+              <option value="Burundian">Burundian</option>
+              <option value="Rwandese">Rwandese</option>
+              <option value="Somali">Somali</option>
+              <option value="South Sudanese">South Sudanese</option>
+            </select>
+            <span class="error-msg" id="nationalityError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="maritalStatus">
+              Marital status <span class="required">*</span>
+            </label>
+            <select id="maritalStatus" name="maritalStatus">
+              <option value="">-- Select Marital status --</option>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Widowed">Widowed</option>
+              <option value="Separated">Separated</option>
+            </select>
+            <span class="error-msg" id="maritalStatusError"></span>
+          </div>
+
+        </div>
+
+        <!-- ROW 5: Settlement Camp | Date of Joining -->
+        <div class="form-row">
+
+          <div class="field-group">
+            <label for="settlementCamp">
+              Settlement camp <span class="required">*</span>
+            </label>
+            <select id="settlementCamp" name="settlementCamp">
+              <option value="">-- Select settlement camp --</option>
+              <option value="Gulu settlement camp">Gulu settlement camp</option>
+              <option value="Arua settlement camp">Arua settlement camp</option>
+              <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+              <option value="Kasese settlement camp">Kasese settlement camp</option>
+              <option value="Busia settlement camp">Busia settlement camp</option>
+              <option value="Mbale settlement camp">M settlement camp</option>
+              <option value="Kigezi settlement camp">Kyangwali settlement camp</option>
+            </select>
+            <span class="error-msg" id="settlementCampError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="dateOfJoining">
+              Date of joining Settlement camp <span class="required">*</span>
+            </label>
+            <input
+              type="date"
+              id="dateOfJoining"
+              name="dateOfJoining"
+            />
+            <span class="error-msg" id="dateOfJoiningError"></span>
+          </div>
+
+        </div>
+
+        <!-- REGISTER BUTTON -->
+        <div class="form-row btn-row">
+          <button type="submit" class="submit-btn">Register</button>
+        </div>
+
+      </form>
+    </main>
+  </div>
+
+  <!-- Form JS -->
+  <script src="js/form.js"></script>
+</body>
+</html>

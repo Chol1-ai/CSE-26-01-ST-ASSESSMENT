@@ -1,0 +1,322 @@
+:root {
+  --pale-green:   #99CC32;
+  --deep-green:   #385723;
+  --valid-green:  #385723;
+  --white:        #ffffff;
+  --error-red:    #cc0000;
+  --text-dark:    #444444;
+  --placeholder:  #aaaaaa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  background: var(--pale-green);
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.left-panel {
+  width: 44%;
+  background: var(--pale-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  flex-shrink: 0;
+}
+
+.logo-circle {
+  width: 210px;
+  height: 210px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+.program-title {
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.right-panel {
+  width: 56%;
+  background: var(--white);
+  padding: 40px 50px 50px 44px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.form-heading {
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--deep-green);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.success-alert {
+  background: #5cb85c;
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.success-alert span {
+  flex: 1;
+  text-align: center;
+}
+
+.close-alert {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.close-alert:hover {
+  opacity: 0.8;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+
+label {
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-green);
+  letter-spacing: 1px;
+}
+
+.req {
+  color: var(--error-red);
+  margin-left: 2px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--pale-green);
+  border-radius: 3px;
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  background: var(--white);
+  outline: none;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]::placeholder {
+  color: var(--placeholder);
+}
+
+input[type="text"]:focus {
+  border-color: var(--pale-green);
+}
+
+input[type="text"].invalid {
+  border-color: var(--error-red) !important;
+}
+
+input[type="text"].valid {
+  border-color: var(--valid-green) !important;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--pale-green);
+  border-radius: 3px;
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--placeholder);
+  background: var(--white);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: border-color 0.2s;
+}
+
+.select-wrapper select.has-value {
+  color: var(--text-dark);
+}
+
+.select-wrapper select:focus {
+  border-color: var(--pale-green);
+}
+
+.select-wrapper select.invalid {
+  border-color: var(--error-red) !important;
+}
+
+.select-wrapper select.valid {
+  border-color: var(--valid-green) !important;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--pale-green);
+  font-size: 13px;
+}
+
+.gender-box {
+  border: 1.5px solid var(--pale-green);
+  border-radius: 3px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  cursor: pointer;
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.gender-option input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--pale-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radio-custom .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pale-green);
+  display: none;
+}
+
+.gender-option input[type="radio"]:checked + .radio-custom .dot {
+  display: block;
+}
+
+.error-msg {
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 12px;
+  color: var(--error-red);
+  letter-spacing: 0.5px;
+  min-height: 16px;
+}
+
+.btn-register-form {
+  grid-column: 2;
+  margin-top: 6px;
+  padding: 15px;
+  background: var(--pale-green);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Agency FB', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-register-form:hover {
+  background: #8aba2c;
+}
+
+.btn-register-form:active {
+  transform: scale(0.99);
+}
+
+@media (max-width: 800px) {
+  .page-wrapper      { flex-direction: column; }
+  .left-panel,
+  .right-panel       { width: 100%; }
+  .right-panel       { padding: 30px 20px; }
+  .form-grid         { grid-template-columns: 1fr; }
+  .btn-register-form { grid-column: 1; }
+}

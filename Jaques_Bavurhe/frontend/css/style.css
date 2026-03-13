@@ -1,0 +1,71 @@
+:root {
+  --pale-green: #99cc32;
+  --deep-green: #385723;
+  --white: #fff;
+  --error-message: #ff4d4d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Agency FB", "Arial Narrow", Arial, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--pale-green);
+}
+
+.container {
+  text-align: center;
+}
+
+/* Circle logo */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+/* FCA text background */
+.fca-box {
+  background: var(--deep-green);
+  color: var(--white);
+  font-size: 36px;
+  font-weight: bold;
+  padding: 6px 25px;
+  border-radius: 6px;
+}
+
+.program-text {
+  color: var(--white);
+  margin-top: 20px;
+  font-size: 35px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* Register button */
+.register-btn {
+  margin-top: 40px;
+  background: var(--white);
+  border: none;
+  padding: 15px 120px;
+  font-size: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  color: var(--deep-green);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+}

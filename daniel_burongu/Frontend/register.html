@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCA - Refugee Support Program</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+
+<div id="registration-page">
+
+  <div class="reg-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="reg-left">
+
+      <div class="reg-logo-wrap">
+        <img src="./assets/images/fca-logo.jpg" alt="FCA Logo" class="reg-logo">
+      </div>
+
+      <div class="reg-title-left">
+        Refugee Support Program
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="reg-right">
+
+      <div class="form-heading">
+        Beneficiary Registration Form
+      </div>
+
+      <!-- SUCCESS ALERT -->
+      <div class="success-alert" id="success-alert">
+        <span>Beneficiary registered successfully</span>
+        <button class="success-alert-close" onclick="closeSuccessAlert()">✕</button>
+      </div>
+
+
+      <!-- FORM -->
+      <form class="form-grid" id="reg-form" onsubmit="event.preventDefault(); submitForm();">
+
+        <!-- First Name -->
+        <div class="form-field">
+          <label class="field-label">First Name <span class="required">*</span></label>
+          <input class="field-input" id="firstName" type="text"
+            placeholder="Enter your first name"
+            oninput="clearError('firstName')" />
+          <div class="field-error" id="err-firstName"></div>
+        </div>
+
+
+        <!-- Last Name -->
+        <div class="form-field">
+          <label class="field-label">Last Name <span class="required">*</span></label>
+          <input class="field-input" id="lastName" type="text"
+            placeholder="Enter your last name"
+            oninput="clearError('lastName')" />
+          <div class="field-error" id="err-lastName"></div>
+        </div>
+
+
+        <!-- Date of Birth -->
+        <div class="form-field">
+          <label class="field-label">Date of Birth <span class="required">*</span></label>
+          <input class="field-input" id="dob" type="date"
+            oninput="clearError('dob')" />
+          <div class="field-error" id="err-dob"></div>
+        </div>
+
+
+        <!-- Place of Birth -->
+        <div class="form-field">
+          <label class="field-label">Place of Birth <span class="required">*</span></label>
+          <input class="field-input" id="placeOfBirth" type="text"
+            placeholder="Enter your place of birth"
+            oninput="clearError('placeOfBirth')" />
+          <div class="field-error" id="err-placeOfBirth"></div>
+        </div>
+
+
+        <!-- Gender -->
+        <div class="form-field full-width">
+          <label class="field-label">Gender</label>
+
+          <div class="gender-row">
+
+            <label class="radio-option">
+              <input type="radio" name="gender" value="Male" id="genderMale">
+              <span class="radio-custom"><span class="radio-dot"></span></span>
+              Male
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="gender" value="Female" id="genderFemale" checked>
+              <span class="radio-custom"><span class="radio-dot"></span></span>
+              Female
+            </label>
+
+          </div>
+        </div>
+
+
+        <!-- Nationality -->
+        <div class="form-field">
+
+          <label class="field-label">Nationality <span class="required">*</span></label>
+
+          <div class="field-select-wrap">
+            <select class="field-select" id="nationality" onchange="clearError('nationality')">
+
+              <option value="">Select Nationality</option>
+              <option>Ugandan</option>
+              <option>Kenyan</option>
+              <option>Tanzanian</option>
+              <option>Burundian</option>
+              <option>Rwandese</option>
+              <option>Somali</option>
+              <option>South Sudanese</option>
+
+            </select>
+
+            <span class="select-arrow">▼</span>
+          </div>
+
+          <div class="field-error" id="err-nationality"></div>
+
+        </div>
+
+
+        <!-- Marital Status -->
+        <div class="form-field">
+
+          <label class="field-label">Marital Status <span class="required">*</span></label>
+
+          <div class="field-select-wrap">
+            <select class="field-select" id="maritalStatus" onchange="clearError('maritalStatus')">
+
+              <option value="">Select Marital Status</option>
+              <option>Single</option>
+              <option>Married</option>
+              <option>Divorced</option>
+              <option>Widowed</option>
+              <option>Separated</option>
+
+            </select>
+
+            <span class="select-arrow">▼</span>
+
+          </div>
+
+          <div class="field-error" id="err-maritalStatus"></div>
+
+        </div>
+
+
+        <!-- Settlement Camp -->
+        <div class="form-field">
+
+          <label class="field-label">Settlement Camp <span class="required">*</span></label>
+
+          <div class="field-select-wrap">
+
+            <select class="field-select" id="settlementCamp" onchange="clearError('settlementCamp')">
+
+              <option value="">Select Settlement Camp</option>
+              <option id="camps">Gulu settlement camp</option>
+              <option id="camps">Arua settlement camp</option>
+              <option id="camps">Mbarara settlement camp</option>
+              <option id="camps">Kasese settlement camp</option>
+              <option id="camps">Busia settlement camp</option>
+              <option id="camps">Mbale settlement camp</option>
+              <option id="camps">Kigezi settlement camp</option>
+
+            </select>
+
+            <span class="select-arrow">▼</span>
+
+          </div>
+
+          <div class="field-error" id="err-settlementCamp"></div>
+
+        </div>
+
+
+        <!-- Join Date -->
+        <div class="form-field">
+
+          <label class="field-label">Date of Joining Settlement Camp <span class="required">*</span></label>
+
+          <input class="field-input" id="joinDate" type="date"
+            oninput="clearError('joinDate')" />
+
+          <div class="field-error" id="err-joinDate"></div>
+
+        </div>
+
+
+        <!-- SUBMIT BUTTON -->
+        <div style="grid-column:1/-1; display:flex; justify-content:flex-end; margin-top:8px;">
+
+          <button type="submit" class="btn-submit">
+            Register
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./js/formValidation.js"></script>
+
+</body>
+</html>

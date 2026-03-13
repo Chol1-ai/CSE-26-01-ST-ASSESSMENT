@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════════
+   style.css
+   FCA Landing Page Styles
+   Location: Patrick_Hassan/frontend/css/style.css
+═══════════════════════════════════════════════ */
+
+/* ── CSS Variables ── */
+:root {
+  --green:       #8dc21f;   /* main lime green background */
+  --green-dark:  #6a9e0f;   /* darker green for hover */
+  --white:       #ffffff;
+  --text-white:  #ffffff;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+/* ═══════════════════════════════════════════════
+   LANDING PAGE
+   - Full screen green background
+   - Everything centered in the middle
+═══════════════════════════════════════════════ */
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--green);
+
+  /* Center everything vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ── White circle that holds the FCA logo ── */
+.logo-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;          /* makes it a perfect circle */
+  background-color: var(--white);
+  overflow: hidden;            /* hides anything outside the circle */
+
+  /* Center the image inside the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── FCA logo image inside the circle ── */
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills the circle without stretching */
+}
+
+/* ── "Refugee Support Program" text ── */
+.tagline {
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1.5px;       /* spaced out like in the screenshot */
+}
+
+/* ── White Register button ── */
+.register-btn {
+  display: block;
+  width: 300px;
+  padding: 16px 0;
+  margin-top: 14px;
+
+  background-color: var(--white);
+  color: var(--green);
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;       /* removes underline from the <a> tag */
+
+  border-radius: 6px;
+  /* Shadow below button - matches screenshot */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  color: var(--green-dark);
+}
+
+.register-btn:active {
+  transform: translateY(0);
+}

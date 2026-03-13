@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beneficiary Registration Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="landing" id="landing">
+        <div class="landing-inner">
+          <img class="landing-logo" src="assets/fca-logo.jpg" alt="FCA Refugee Support Program" />
+          <div class="landing-text">Refugee Support Program</div>
+          <button class="landing-button" id="start-registration" type="button">Register</button>
+        </div>
+      </section>
+
+      <section class="form-view hidden" id="form-view">
+        <section class="card">
+          <aside class="brand-panel">
+            <img class="logo" src="assets/fca-logo.jpg" alt="FCA Refugee Support Program" />
+            <div class="brand-text">Refugee Support Program</div>
+          </aside>
+
+          <section class="form-panel">
+            <div id="success-alert" class="alert hidden" role="alert">
+              <span>Beneficiary registered successfully</span>
+              <button class="alert-close" type="button" aria-label="Close alert">&times;</button>
+            </div>
+            <header class="form-header">
+              <h1>Beneficiary Registration Form</h1>
+            </header>
+
+            <form id="beneficiary-form" novalidate>
+              <div class="grid two">
+                <label class="field">
+                <span>First Name <em>*</em></span>
+                <input name="firstName" type="text" placeholder="Enter your First name" required />
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+              <label class="field">
+                <span>Last Name <em>*</em></span>
+                <input name="lastName" type="text" placeholder="Enter your Last name" required />
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+            </div>
+
+              <div class="grid two">
+                <label class="field">
+                <span>Date of birth <em>*</em></span>
+                  <input name="dateOfBirth" type="text" placeholder="YYYY/MM/DD" required />
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+              <label class="field">
+                <span>Place of Birth <em>*</em></span>
+                <input name="placeOfBirth" type="text" placeholder="Enter your place of residence" required />
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+            </div>
+
+              <div class="field">
+                <span>Gender <em>*</em></span>
+                <div class="radio-group">
+                <label class="radio">
+                  <input type="radio" name="gender" value="Male" required />
+                  <span>Male</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="gender" value="Female" required checked />
+                  <span>Female</span>
+                </label>
+              </div>
+              <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+            </div>
+
+              <div class="grid two">
+                <label class="field">
+                <span>Nationality <em>*</em></span>
+                <select name="nationality" required>
+                  <option value="">-- Select Nationality --</option>
+                  <option>Ugandan</option>
+                  <option>Kenyan</option>
+                  <option>Tanzanian</option>
+                  <option>Burundian</option>
+                  <option>Rwandese</option>
+                  <option>Somali</option>
+                  <option>South Sudanese</option>
+                </select>
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+              <label class="field">
+                <span>Marital status <em>*</em></span>
+                <select name="maritalStatus" required>
+                  <option value="">-- Select Marital status --</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Divorced</option>
+                  <option>Widowed</option>
+                  <option>Separated</option>
+                </select>
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+            </div>
+
+            <div class="grid two">
+              <label class="field">
+                <span>Settlement camp <em>*</em></span>
+                <select name="settlementCamp" required>
+                  <option value="">-- Select settlement camp --</option>
+                  <option>Gulu settlement camp</option>
+                  <option>Arua settlement camp</option>
+                  <option>Mbarara settlement camp</option>
+                  <option>Kasese settlement camp</option>
+                  <option>Busia settlement camp</option>
+                  <option>Mbale settlement camp</option>
+                  <option>Kigezi settlement camp</option>
+                </select>
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+              <label class="field">
+                <span>Date of joining Settlement camp <em>*</em></span>
+                  <input name="dateOfJoining" type="text" placeholder="YYYY/MM/DD" required />
+                <small class="error" data-required="This field is required" data-invalid="Invalid field">This field is required</small>
+              </label>
+            </div>
+
+              <div class="actions">
+                <button type="submit">Register</button>
+                <p id="form-message" role="status"></p>
+              </div>
+            </form>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
